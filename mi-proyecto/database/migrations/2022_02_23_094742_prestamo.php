@@ -14,10 +14,11 @@ class Prestamo extends Migration
     public function up()
     {
         Schema::create('prestamo', function (Blueprint $table) {
-            $table->id("id");
+            $table->id();
             $table->string("isbn");
             $table->date('fechaInicio');
             $table->date('fechaFin');
+            $table->timesTamps();
             
         });
     }

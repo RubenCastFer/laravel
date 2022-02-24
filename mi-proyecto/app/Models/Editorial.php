@@ -9,5 +9,14 @@ class Editorial extends Model
 {
     use HasFactory;
     protected $table="editorial";
+    protected $fillable=['id','nombre','nacionalidad'];
 
+
+    public function obtenerEditoriales(){
+        return Editoriales::all();
+    }
+
+    public function obtenerEditorial($id){
+        return Editorial::find($id);
+    }
 }

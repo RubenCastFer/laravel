@@ -16,7 +16,7 @@ class editoriales extends Seeder
     public function run()
     {
         DB::table('editorial')->insert([
-            'id' => 0,
+            
             'nombre' => 'Bloomsbury Publishing',
             'nacionalidad' => 'Inglaterra'
         ]);

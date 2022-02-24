@@ -9,5 +9,16 @@ class Prestamo extends Model
 {
     use HasFactory;
     protected $table="prestamo";
+    protected $fillable=['isbn','fechaInicio','fechaFin'];
+    protected $hidden = ['id'];
 
+    public function obtenerLibros(){
+        return Prestamos::all();
+    }
+
+    public function obtenerPrestamo($isbn){
+        return Prestamo::find($isbn);
+    }
 }
+
+

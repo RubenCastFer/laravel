@@ -14,9 +14,11 @@ class Editorial extends Migration
     public function up()
     {
         Schema::create('editorial', function (Blueprint $table) {
-            $table->id("id");
+            $table->id();
             $table->string('nombre');
             $table->string('nacionalidad');
+            $table->timesTamps();
+
         });
     }
 
