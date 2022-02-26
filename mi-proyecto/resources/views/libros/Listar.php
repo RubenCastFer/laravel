@@ -30,9 +30,9 @@
             echo "<td>$libro->idioma</td>";
             echo "<td>$libro->publicacion</td>";
             echo "<td>$libro->editorial</td>";
-            echo '<td><a href="/libros/ver/{{$libros->isbn}}">Ver</a></td>';
-            echo '<td><a href="/libros/editar/{{$libros->isbn}}">Editar</a></td>';
-            echo '<td><a href="/libros/eliminar/{{$libros->isbn}}">Eliminar</a></td>';
+            echo "<td><a href=/libros/Detalles/$libro->isbn>Ver</a></td>";
+            echo "<td><a href=/libros/Editar/$libro->isbn>Editar</a></td>";
+            echo "<td><a href=/libros/Eliminar/$libro->isbn>Eliminar</a></td>";
             echo"</tr>";
         }
     ?>

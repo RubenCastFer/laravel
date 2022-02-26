@@ -57,7 +57,8 @@ class LibroController extends Controller
     public function show($isbn)
     {
         $libro = $this->libros->obtenerLibro($isbn);
-        return view('libros.ver', ['libro' => $libro]);
+        // $libro=Libros::find($isbn);
+        return view('libros.Detalles', ['libro' => $libro]);
     }
 
     /**
@@ -69,7 +70,7 @@ class LibroController extends Controller
     public function edit($isbn)
     {
         $libro = $this->libros->obtenerLibro($isbn);;
-        return view('libro.editar', ['libro' => $libro]);
+        return view('libros.Editar', ['libro' => $libro]);
     }
 
     /**

@@ -30,4 +30,10 @@ Route::get('/libros/CrearLibro', [LibroController::class, 'create']);
 
 Route::post('/libros/CrearLibro',  [LibroController::class, 'store']);
 
+Route::get('/libros/Detalles/{isbn}', [LibroController::class, 'show']);
+
+Route::get('/libros/Editar/{isbn}', [LibroController::class, 'edit']);
+
+Route::put('/libros/Editar/{isbn}',  [LibroController::class, 'update']);
+
 require __DIR__.'/auth.php';
