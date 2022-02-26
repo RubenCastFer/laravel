@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\EditorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::get('/libros', [LibroController::class, 'index']);
+
+Route::get('/libros/CrearLibro', [LibroController::class, 'create']);
+
+Route::post('/libros/CrearLibro',  [LibroController::class, 'store']);
 
 require __DIR__.'/auth.php';

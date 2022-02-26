@@ -10,13 +10,14 @@ class Libros extends Model
     use HasFactory;
     protected $table="libros";
     protected $fillable=['isbn','titulo','autor','idioma','publicacion','editorial'];
-    protected $hidden = ['id'];
+    // 'updated_at','created_at'
+    // protected $hidden = ['id'];
 
     public function obtenerLibros(){
         return Libros::all();
     }
 
-    public function obtenerLibro($id){
-        return Libro::find($id);
+    public function obtenerLibro($isbn){
+        return Libros::find($isbn);
     }
 }

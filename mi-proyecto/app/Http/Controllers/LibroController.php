@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Libros;
 
 class LibroController extends Controller
 {
+
+    protected $libros;
+    public function __construct(Libros $libros)
+    {
+        $this->libros = $libros;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //
+        $libros = $this->libros->obtenerLibros();
+        return view('libros.Listar', ['libros' => $libros]);
     }
 
     /**
@@ -23,7 +32,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        return view('libros.CrearLibro');
     }
 
     /**
@@ -34,7 +43,9 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $libro = new Libros($request->all());
+        $libro->save();
+        return redirect()->action([LibroController::class, 'index']);
     }
 
     /**
@@ -43,9 +54,10 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($isbn)
     {
-        //
+        $libro = $this->libros->obtenerLibro($isbn);
+        return view('libros.ver', ['libro' => $libro]);
     }
 
     /**
@@ -54,9 +66,10 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($isbn)
     {
-        //
+        $libro = $this->libros->obtenerLibro($isbn);;
+        return view('libro.editar', ['libro' => $libro]);
     }
 
     /**
@@ -66,9 +79,12 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $isbn)
     {
-        //
+        $libro = Libros::find($isbn);
+        $libro->fill($request->all());
+        $libro->save();
+        return redirect()->action([LibroController::class, 'index']);
     }
 
     /**
@@ -77,8 +93,10 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($isbn)
     {
-        //
+        $libro = Libros::find($isbn);
+        $libro->delete();
+        return redirect()->action([LibroController::class, 'index']);
     }
 }

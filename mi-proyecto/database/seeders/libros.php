@@ -23,7 +23,7 @@ class Libros extends Seeder
             'idioma'=> 'Ingles',
             'publicacion'=>'1997-07-26',
             'editorial'=>0
-        ],);
+        ]);
 
         DB::table('libros')->insert([
             'isbn' => 'absd123456790',

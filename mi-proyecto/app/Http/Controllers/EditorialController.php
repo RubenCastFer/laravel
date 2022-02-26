@@ -23,7 +23,7 @@ class EditorialController extends Controller
      */
     public function create()
     {
-        //
+        return view('libros.CrearEditorial');
     }
 
     /**
