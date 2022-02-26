@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Editorial;
 
 class EditorialController extends Controller
 {
+
+    protected $editoriales;
+    public function __construct(Editorial $editoriales)
+    {
+        $this->editoriales = $editoriales;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        //
+        // $editoriales = $this->editoriales->obtenerEditoriales();
+        // return view('editorial.', ['editoriales' => $editoriales]);
     }
 
     /**
@@ -23,7 +31,7 @@ class EditorialController extends Controller
      */
     public function create()
     {
-        return view('libros.CrearEditorial');
+        return view('editoriales.CrearEditorial');
     }
 
     /**
@@ -34,7 +42,9 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $editorial = new Editorial($request->all());
+        $editorial->save();
+        return redirect()->action([LibroController::class, 'index']);
     }
 
     /**

@@ -13,7 +13,7 @@ class Editorial extends Model
 
 
     public function obtenerEditoriales(){
-        return Editoriales::all();
+        return Editorial::all();
     }
 
     public function obtenerEditorial($id){

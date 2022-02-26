@@ -36,4 +36,7 @@ Route::get('/libros/Editar/{isbn}', [LibroController::class, 'edit']);
 
 Route::put('/libros/Editar/{isbn}',  [LibroController::class, 'update']);
 
+Route::get('/editoriales/CrearEditorial', [EditorialController::class, 'create']);
+
+Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store']);
 require __DIR__.'/auth.php';
