@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EditorialController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +12,6 @@ use App\Http\Controllers\EditorialController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,4 +36,6 @@ Route::put('/libros/Editar/{isbn}',  [LibroController::class, 'update']);
 Route::get('/editoriales/CrearEditorial', [EditorialController::class, 'create']);
 
 Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store']);
+
+Route::get('/libros/Eliminar/{isbn}', [LibroController::class, 'destroy']);
 require __DIR__.'/auth.php';

@@ -15,9 +15,9 @@
         <label>ID:</label>
         <input type="number" name="id" placeholder="ID"><br>
         <label>Nombre:</label>
-        <input type="text" name="nombre" placeholder="Titulo"><br>
+        <input type="text" name="nombre" placeholder="Nombre"><br>
         <label>Nacionalidad:</label>
-        <input type="text" name="nacionalidad" placeholder="Autor"><br>
+        <input type="text" name="nacionalidad" placeholder="Nacionalidad"><br>
         <input type="submit" value="Guardar">
     </form>
 </body>
