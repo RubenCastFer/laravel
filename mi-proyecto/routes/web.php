@@ -38,4 +38,17 @@ Route::get('/editoriales/CrearEditorial', [EditorialController::class, 'create']
 Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store']);
 
 Route::get('/libros/Eliminar/{isbn}', [LibroController::class, 'destroy']);
+
+Route::get('/home', function(){
+    return view('index');
+});
+
+Route::get('/about', function(){
+    return view('about');
+});
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+
 require __DIR__.'/auth.php';
