@@ -51,4 +51,20 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
+// Route::get('/CrearEditorial', function(){
+//     return view('CrearEditorial');
+// });
+
+// Route::get('/CrearEditorial', function(){
+//     return view('CrearEditorial');
+// });
+
+// Route::get('/CrearLibro', function(){
+//     return view('CrearEditorial');
+// });
+
+// Route::get('/CrearEditorial', function(){
+//     return view('CrearEditorial');
+// });
+
 require __DIR__.'/auth.php';
