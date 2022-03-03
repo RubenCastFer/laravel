@@ -14,25 +14,33 @@
 
 <body>
 
-<div class="card" style="width: 18rem; margin:auto; margin-top:10px">
-        <div class="card-body">
-            <h5 class="card-title">Peticion</h5>
-            <form action="/libros/Peticiones" method="POST">
-        <!-- <input type="hidden" name="_method" value="PUT"> -->
-        <input type="hidden" name="_token" value="csrf_token()">
-        <label>Nombre y Apellidos:</label>
-        <input type="text" name="nombreApellidos" placeholder="Nombre y Apellidos" required><br>
-        <label>Correo electrónico:</label>
-        <input type="mail" name="mail" placeholder="Correo electrónico" required><br>
-        <label>Título del libro:</label>
-        <input type="text" name="titulo" placeholder="Título del libro" required><br>
-        <input type="submit" value="Guardar">
-    </form>
-        </div>
+    <div class="container">
+        <h2 style="margin:auto">Listado de peticions</h2>
+        <table class="table" style="margin:auto">
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Titulo</th>
+            </tr>
+
+            @foreach ($peticiones as $peticion)
+            <tr>
+                <td>{{ $peticion->nombre }}</td>
+                <td>{{ $peticion->mail }}</td>
+                <td>{{ $peticion->titulo }}</td>
+                <!-- <td>{{ $peticion->idioma }}</td>
+                <td>{{ $peticion->publicacion }}</td>
+                <td>{{ $peticion->editorial }}</td> -->
+                <!-- <td><a href="/libros/Detalles/{{$peticion->isbn}}">Ver</a></td>
+                <td><a href="/libros/Editar/{{$peticion->isbn}}">Editar</a></td>
+                <td><a href="/libros/Eliminar/{{$peticion->isbn}}">Eliminar</a></td>
+            </tr> -->
+
+            @endforeach
+        </table>
     </div>
 
 
 </body>
 
 @endsection
-

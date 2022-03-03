@@ -9,15 +9,16 @@ class Peticion extends Model
 {
     use HasFactory;
     protected $table="peticiones";
+    protected $primaryKey = 'id';
     protected $fillable=['nombre','mail','titulo'];
-    protected $hidden = ['id'];
+    // protected $hidden = ['id'];
 
 
     public function obtenerPeticiones(){
         return Peticion::all();
     }
 
-    public function obtenerPeticion($isbn){
-        return Peticion::find($isbn);
-    }
+    // public function obtenerPeticion($nombre){
+    //     return Peticion::find($nombre);
+    // }
 }

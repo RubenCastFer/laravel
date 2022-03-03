@@ -40,7 +40,13 @@
             <a class="nav-link text-white" href="/editoriales/CrearEditorial">Nueva Editorial</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/contact">Login</a>
+            <a class="nav-link text-white" href="/libros/Peticion">Nueva Peticion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/libros/Peticiones">Lista de Peticiones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/login">Login</a>
           </li>
         </ul>
       </div>

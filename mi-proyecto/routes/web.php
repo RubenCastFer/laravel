@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EditorialController;
+use App\Http\Controllers\PeticionesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,17 +41,24 @@ Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store'
 
 Route::get('/libros/Eliminar/{isbn}', [LibroController::class, 'destroy']);
 
-Route::get('/home', function(){
-    return view('index');
-});
+Route::get('/libros/Peticiones', [PeticionesController::class, 'index']);
 
-Route::get('/about', function(){
-    return view('about');
-});
+Route::get('/libros/Peticion', [PeticionesController::class, 'create']);
 
-Route::get('/contact', function(){
-    return view('contact');
-});
+Route::post('/libros/Peticion',  [PeticionesController::class, 'store']);
+
+
+// Route::get('/home', function(){
+//     return view('index');
+// });
+
+// Route::get('/about', function(){
+//     return view('about');
+// });
+
+// Route::get('/contact', function(){
+//     return view('contact');
+// });
 
 // Route::get('/CrearEditorial', function(){
 //     return view('CrearEditorial');
