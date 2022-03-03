@@ -21,8 +21,10 @@
             <th>Publicacion</th>
             <th>Editorial</th>
             <th>Ver</th>
+            @auth
             <th>Editar</th>
             <th>Eliminar</th>
+            @endauth
         </tr>
 
         @foreach ($libros as $libro) 
@@ -33,9 +35,12 @@
             <td>{{ $libro->idioma }}</td>
             <td>{{ $libro->publicacion }}</td>
             <td>{{ $libro->editorial }}</td>
+            
             <td><a href="/libros/Detalles/{{$libro->isbn}}">Ver</a></td>
+            @auth
             <td><a href="/libros/Editar/{{$libro->isbn}}">Editar</a></td>
             <td><a href="/libros/Eliminar/{{$libro->isbn}}">Eliminar</a></td>
+            @endauth
         </tr>
         
         @endforeach

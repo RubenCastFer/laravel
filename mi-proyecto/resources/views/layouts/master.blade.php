@@ -33,21 +33,30 @@
           <li class="nav-item">
             <a class="nav-link text-white" aria-current="page" href="/libros">Libros</a>
           </li>
+          @auth
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/CrearLibro">Nuevo Libro</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-white" href="/editoriales/CrearEditorial">Nueva Editorial</a>
           </li>
+          @endauth
+
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/Peticion">Nueva Peticion</a>
           </li>
+          @auth
+
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/Peticiones">Lista de Peticiones</a>
           </li>
+          @endauth
+          @guest
           <li class="nav-item">
             <a class="nav-link text-white" href="/login">Login</a>
           </li>
+          @endguest
+
         </ul>
       </div>
     </div>

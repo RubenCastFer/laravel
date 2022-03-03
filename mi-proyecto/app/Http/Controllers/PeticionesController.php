@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Peticion;
+use Illuminate\Support\Facades\Mail;
+ 
+use App\Mail\NotificacionPeticion;
 
 class PeticionesController extends Controller
 {
@@ -47,6 +50,8 @@ class PeticionesController extends Controller
     {
         $peticion = new Peticion($request->all());
         $peticion->save();
+        Mail::to($request->input('mail'))->send(new NotificacionPeticion($peticion));
+ 
         return redirect()->action([LibroController::class, 'index']);
     }
 

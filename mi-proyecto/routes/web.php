@@ -4,6 +4,7 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\PeticionesController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,27 +26,28 @@ Route::get('/dashboard', function () {
 
 Route::get('/libros', [LibroController::class, 'index']);
 
-Route::get('/libros/CrearLibro', [LibroController::class, 'create']);
+Route::get('/libros/CrearLibro', [LibroController::class, 'create'])->middleware(['auth']);
 
-Route::post('/libros/CrearLibro',  [LibroController::class, 'store']);
+Route::post('/libros/CrearLibro',  [LibroController::class, 'store'])->middleware(['auth']);
 
 Route::get('/libros/Detalles/{isbn}', [LibroController::class, 'show']);
 
-Route::get('/libros/Editar/{isbn}', [LibroController::class, 'edit']);
+Route::get('/libros/Editar/{isbn}', [LibroController::class, 'edit'])->middleware(['auth']);
 
-Route::put('/libros/Editar/{isbn}',  [LibroController::class, 'update']);
+Route::put('/libros/Editar/{isbn}',  [LibroController::class, 'update'])->middleware(['auth']);
 
-Route::get('/editoriales/CrearEditorial', [EditorialController::class, 'create']);
+Route::get('/editoriales/CrearEditorial', [EditorialController::class, 'create'])->middleware(['auth']);
 
-Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store']);
+Route::post('/editoriales/CrearEditorial',  [EditorialController::class, 'store'])->middleware(['auth']);
 
-Route::get('/libros/Eliminar/{isbn}', [LibroController::class, 'destroy']);
+Route::get('/libros/Eliminar/{isbn}', [LibroController::class, 'destroy'])->middleware(['auth']);
 
-Route::get('/libros/Peticiones', [PeticionesController::class, 'index']);
+Route::get('/libros/Peticiones', [PeticionesController::class, 'index'])->middleware(['auth']);
 
 Route::get('/libros/Peticion', [PeticionesController::class, 'create']);
 
 Route::post('/libros/Peticion',  [PeticionesController::class, 'store']);
+
 
 
 // Route::get('/home', function(){
