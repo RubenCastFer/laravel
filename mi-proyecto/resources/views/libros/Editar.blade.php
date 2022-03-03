@@ -1,3 +1,6 @@
+@extends('layouts.master')
+@section('title','Editar')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,23 +12,35 @@
 </head>
 
 <body>
-    <form action="/libros/Editar/<?php echo $libro->isbn?>" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="_token" value="csrf_token()">
-        <label>Isbn:</label>
-        <input type="number" name="isbn" placeholder="ISBN" value="<?php echo $libro->isbn?>"><br>
-        <label>Titulo:</label>
-        <input type="text" name="titulo" placeholder="Titulo" value="<?php echo $libro->titulo?>"><br>
-        <label>Autor:</label>
-        <input type="text" name="autor" placeholder="Autor" value="<?php echo $libro->autor?>"><br>
-        <label>Idioma:</label>
-        <input type="text" name="idioma" placeholder="Idioma" value="<?php echo $libro->idioma?>"><br>
-        <label>Publicacion:</label>
-        <input type="date" name="publicacion" value="<?php echo $libro->publicacion?>"><br>
-        <label>Editorial:</label>
-        <input type="number" name="editorial" placeholder="Editorial" value="<?php echo $libro->editorial?>"><br>
-        <input type="submit" value="Guardar">
-    </form>
+
+
+
+        <div class="card" style="width: 18rem; margin:auto; margin-top:10px">
+            <div class="card-body">
+                <h5 class="card-title">Editar libro</h5>
+                <form action="/libros/Editar/<?php echo $libro->isbn ?>" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="_token" value="csrf_token()">
+                    <label>Isbn:</label>
+                    <input type="number" name="isbn" placeholder="ISBN" value="<?php echo $libro->isbn ?>"><br>
+                    <label>Titulo:</label>
+                    <input type="text" name="titulo" placeholder="Titulo" value="<?php echo $libro->titulo ?>"><br>
+                    <label>Autor:</label>
+                    <input type="text" name="autor" placeholder="Autor" value="<?php echo $libro->autor ?>"><br>
+                    <label>Idioma:</label>
+                    <input type="text" name="idioma" placeholder="Idioma" value="<?php echo $libro->idioma ?>"><br>
+                    <label>Publicacion:</label>
+                    <input type="date" name="publicacion" value="<?php echo $libro->publicacion ?>"><br>
+                    <label>Editorial:</label>
+                    <input type="number" name="editorial" placeholder="Editorial" value="<?php echo $libro->editorial ?>"><br>
+                    <input type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+
+
+
 </body>
 
 </html>
+@endsection

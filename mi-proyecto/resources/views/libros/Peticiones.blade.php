@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Crear Editorial')
+@section('title','Peticiones')
 @section('content')
 
 <!DOCTYPE html>
@@ -16,16 +16,16 @@
 
 <div class="card" style="width: 18rem; margin:auto; margin-top:10px">
         <div class="card-body">
-            <h5 class="card-title">Nueva editorial</h5>
-            <form action="/editoriales/CrearEditorial" method="POST">
+            <h5 class="card-title">Peticion</h5>
+            <form action="/libros/Peticiones" method="POST">
         <!-- <input type="hidden" name="_method" value="PUT"> -->
         <input type="hidden" name="_token" value="csrf_token()">
-        <label>ID:</label>
-        <input type="number" name="id" placeholder="ID"><br>
-        <label>Nombre:</label>
-        <input type="text" name="nombre" placeholder="Nombre"><br>
-        <label>Nacionalidad:</label>
-        <input type="text" name="nacionalidad" placeholder="Nacionalidad"><br>
+        <label>Nombre y Apellidos:</label>
+        <input type="text" name="nombreApellidos" placeholder="Nombre y Apellidos" required><br>
+        <label>Correo electrónico:</label>
+        <input type="mail" name="mail" placeholder="Correo electrónico" required><br>
+        <label>Título del libro:</label>
+        <input type="text" name="titulo" placeholder="Título del libro" required><br>
         <input type="submit" value="Guardar">
     </form>
         </div>

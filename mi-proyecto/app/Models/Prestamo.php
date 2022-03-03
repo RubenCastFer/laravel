@@ -12,8 +12,8 @@ class Prestamo extends Model
     protected $fillable=['isbn','fechaInicio','fechaFin'];
     protected $hidden = ['id'];
 
-    public function obtenerLibros(){
-        return Prestamos::all();
+    public function obtenerPrestamos(){
+        return Prestamo::all();
     }
 
     public function obtenerPrestamo($isbn){

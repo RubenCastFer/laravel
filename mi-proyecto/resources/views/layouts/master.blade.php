@@ -12,15 +12,15 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-black bg-black">
+  <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home">Navbar</a>
+      <a class="navbar-brand" href="/libros"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" style width="50px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/home">Home</a>
           </li>
           <li class="nav-item">
@@ -28,19 +28,19 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact As</a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/libros">Libros</a>
+            <a class="nav-link text-white" aria-current="page" href="/libros">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/libros/CrearLibro">Nuevo Libro</a>
+            <a class="nav-link text-white" href="/libros/CrearLibro">Nuevo Libro</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-white" href="/editoriales/CrearEditorial">Nueva Editorial</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/editoriales/CrearEditorial">Nueva Editorial</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Login</a>
+            <a class="nav-link text-white" href="/contact">Login</a>
           </li>
         </ul>
       </div>
@@ -52,9 +52,9 @@
   @yield('content')
 
 
-  <footer class="position-absolute bottom-0">
+  <footer class="container-fluid position-absolute bottom-0 bg-secondary">
     <div>
-      <p>Rubén Castellano Fernández, 2022</p>
+      <p class="text-white">Rubén Castellano Fernández, 2022</p>
     </div>
   </footer>
 

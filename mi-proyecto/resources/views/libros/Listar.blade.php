@@ -10,8 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Listado de libros</h2>
-    <table>
+    <div class="container">
+    <h2 style="margin:auto" >Listado de libros</h2>
+    <table class="table" style="margin:auto">
         <tr>
             <th>ISBN</th>
             <th>Titulo</th>
@@ -39,6 +40,8 @@
         
         @endforeach
     </table>
+    </div>
+
 
 </body>
 </html>
