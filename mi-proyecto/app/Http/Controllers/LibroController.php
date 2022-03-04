@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libros;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class LibroController extends Controller
 {
@@ -99,5 +100,23 @@ class LibroController extends Controller
         $libro = Libros::find($isbn);
         $libro->delete();
         return redirect()->action([LibroController::class, 'index']);
+    }
+
+    public function guardarListado(){
+        $datos =[
+            "libros"=>Libros::all()
+        ];
+        $pdf = PDF::loadView('libros.ListaPDF', $datos);
+     
+        return $pdf->download('libros.pdf');
+    }
+
+    public function guardarDetalle($isbn){
+        $libro =[
+            "libro"=>Libros::find($isbn)
+        ];
+        $pdf = PDF::loadView('libros.DetallePDF', $libro);
+     
+        return $pdf->download('libro.pdf');
     }
 }

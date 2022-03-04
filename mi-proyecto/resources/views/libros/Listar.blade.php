@@ -45,6 +45,7 @@
         
         @endforeach
     </table>
+    <a href="/libros/PDF" class="btn btn-primary mt-3">Generar PDF</a>
     </div>
 
 

@@ -20,16 +20,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <!-- <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About As</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact As</a>
-          </li> -->
-
           <li class="nav-item">
             <a class="nav-link text-white" aria-current="page" href="/libros">Libros</a>
           </li>
@@ -69,7 +59,7 @@
 
   <footer class="container-fluid position-absolute bottom-0 bg-secondary">
     <div>
-      <p class="text-white">Rubén Castellano Fernández, 2022</p>
+      <p class="text-white text-center">Rubén Castellano Fernández, 2022</p>
     </div>
   </footer>
 

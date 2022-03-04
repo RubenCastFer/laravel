@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\PeticionesController;
-
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,9 @@ Route::get('/libros/Peticion', [PeticionesController::class, 'create']);
 
 Route::post('/libros/Peticion',  [PeticionesController::class, 'store']);
 
+Route::get('/libros/PDF', [LibroController::class, 'guardarListado']);
+
+Route::get('/libros/DetallePDF/{isbn}', [LibroController::class, 'guardarDetalle']);
 
 
 // Route::get('/home', function(){
