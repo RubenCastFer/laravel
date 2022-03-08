@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libros;
 use Barryvdh\DomPDF\Facade as PDF;
-
+// use PDF;
 class LibroController extends Controller
 {
 
@@ -116,7 +116,7 @@ class LibroController extends Controller
             "libro"=>Libros::find($isbn)
         ];
         $pdf = PDF::loadView('libros.DetallePDF', $libro);
-     
+      
         return $pdf->download('libro.pdf');
     }
 }

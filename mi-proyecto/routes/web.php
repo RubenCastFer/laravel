@@ -4,6 +4,7 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\PeticionesController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PeliculasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,16 @@ Route::post('/libros/Peticion',  [PeticionesController::class, 'store']);
 Route::get('/libros/PDF', [LibroController::class, 'guardarListado']);
 
 Route::get('/libros/DetallePDF/{isbn}', [LibroController::class, 'guardarDetalle']);
+
+Route::get('/pelis/PeliForm', [PeliculasController::class, 'create'])->middleware(['auth']);
+
+Route::post('/pelis/PeliForm',  [PeliculasController::class, 'store'])->middleware(['auth']);
+
+Route::get('/pelis/Listar', [PeliculasController::class, 'index']);
+
+Route::get('/pelis/Detalles/{id}', [PeliculasController::class, 'show']);
+
+Route::get('/pelis/Aviso/{id}', [PeliculasController::class, 'aviso']);
 
 
 // Route::get('/home', function(){

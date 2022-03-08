@@ -14,7 +14,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/libros"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" style width="50px"></a>
+      <a class="navbar-brand" href="/dashboard"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" style width="50px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,6 +23,7 @@
           <li class="nav-item">
             <a class="nav-link text-white" aria-current="page" href="/libros">Libros</a>
           </li>
+          
           @auth
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/CrearLibro">Nuevo Libro</a>
@@ -35,17 +36,34 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/Peticion">Nueva Peticion</a>
           </li>
+          
           @auth
-
           <li class="nav-item">
             <a class="nav-link text-white" href="/libros/Peticiones">Lista de Peticiones</a>
           </li>
           @endauth
+
+          @auth
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/pelis/PeliForm">Nueva Pelicula</a>
+          </li>
+          @endauth
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/pelis/Listar">Listado de Peliculas</a>
+          </li>
+
           @guest
           <li class="nav-item">
             <a class="nav-link text-white" href="/login">Login</a>
           </li>
           @endguest
+
+          @auth
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/dashboard">Panel de Control</a>
+          </li>
+          @endauth
 
         </ul>
       </div>
