@@ -10,10 +10,7 @@
     <link href="{!! asset('css/presupuesto.css') !!}" rel="stylesheet" type="text/css">
 
 </head>
-
 <body>
-
-
     <div class="container">
         <div class="row">
 
@@ -23,40 +20,77 @@
             <div class="col-3">
                 <h1>{{$datos['coche'][0]->marca}} {{$datos['coche'][0]->modelo}}</h1>
                 <img src="{!! asset('img/cocheLogin.jpg') !!}" class="img-fluid" alt="...">
-                <h6 class="mt-3">Recogida: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['recogida']))}}</h6>
-                <h6 class="mt-3">Devolución: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['devolucion']))}}</h6>
-                <h5 class="mt-3">Precio final: {{$datos['precioTotal']}}€</h5>
-                <?php var_dump(session('datosPresupuesto'));?>
+                <h6 class="mt-3 ms-3">Recogida: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['recogida']))}}</h6>
+                <h6 class="mt-3 ms-3">Devolución: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['devolucion']))}}</h6>
+                <h6 class="mt-3 ms-3">Tarifa: {{$datos['coche'][0]->precio}}</h6>
+                <h6 class="mt-3 ms-3">Fecha del contrato: {{date('d M Y', strtotime($datos['contrato']))}}</h6>
+                <h6 class="mt-3 ms-3">Fianza: 500€</h6>
+                <h5 class="mt-3 ms-3">Precio final: {{$datos['precioTotal']}}€</h5>
             </div>
-
             <div class="col-9">
                 <div class="row">
                     <div class="col-12">
                         <div class="border border-dark rounded-3 m-4">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quia necessitatibus quae exercitationem, minima ad commodi porro, doloribus consequatur sunt a, dolore corrupti vero aut cumque placeat deserunt magnam facilis?</p>
+                            <p class="ms-3 mt-3">
+                                Recibe lleno el depósito y entrégalo lleno a la devolución. 
+                                <br>
+                                Seguro de ocupantes del vehículo.
+                                <br>
+                                Cobertura básica de daños con franquicia (CDW).
+                                <br>
+                                IVA incluido
+                            </p>
                         </div>
-
-
-
                     </div>
                     @if (session()->get('tipo')=='cliente')
-                    <h1>Es cliente, paga</h1>
-                    
+                    <div class="col-12 ">
+                        <div class="border border-dark rounded-3 m-4">
+                            <h1 class="ms-3 mt-3">Importe: {{$datos['precioTotal']}}</h1>
+                            <form method="post" action="/cliente/pago">
+                                @csrf
+                                <div class="row form-floating g-2 ms-3">
+                                    <h5 class="ps-4">Datos de la tarjeta</h5>
+                                    <div class="col-7 p-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="titular" name="titular" placeholder="titular" required>
+                                            <label for="titular">Titular</label>
+                                        </div>
+                                        <div class="form-floating mt-2">
+                                            <input type="text" class="form-control" id="nTarjeta" name="nTarjeta" placeholder="nTarjeta" require>
+                                            <label for="nTarjeta">Nº Tarjeta</label>
+                                        </div>
 
+                                        <div class="form-floating col-4 mt-2">
+                                            <input type="text" class="form-control" id="seguridad" name="seguridad" placeholder="seguridad" required>
+                                            <label for="seguridad">Cod Seguridad</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 p-4">
+                                        <div class="row g-2">
+                                            <h6>Caducidad:</h6>
+                                            <div class="form-floating mt-2 col-6">
+                                                <input type="text" class="form-control" id="dd" name="dd" placeholder="dd" require>
+                                                <label for="dd">dd</label>
+                                            </div>
+                                            <div class="form-floating mt-2 col-6">
+                                                <input type="text" class="form-control" id="MM" name="MM" placeholder="MM" require>
+                                                <label for="MM">MM</label>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="w-100 btn btn-lg btn-primary mt-2" value="Realizar Pago">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
                     @endif
-
-
-
-
-
                     @if (session()->get('tipo')!='cliente' && session()->get('tipo')!='empleado')
-                    <h1>sin login no puede pagar</h1>
                     <div class="col-4">
                         <div class="border border-dark rounded-3 m-4">
                             <div class="text-center container bg-secondary p-2 text-dark bg-opacity-50">
                                 <h5 class="h5 mb-3 fw-normal text-white">¿Tienes ya una cuenta?</h5>
                                 <h5 class="h5 mb-3 fw-normal text-white">Iniciar sesión</h5>
-
                                 @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 @endif
@@ -76,13 +110,11 @@
                             </main>
                         </div>
                     </div>
-
                     <div class="col-8">
                         <div class="border border-dark rounded-3 m-4">
                             <div class="text-center container bg-secondary p-2 text-dark bg-opacity-50">
                                 <h5 class="h5 mb-3 fw-normal text-white">¿Todavía sin una cuenta?</h5>
                                 <h5 class="h5 mb-3 fw-normal text-white">Registrate ya</h5>
-
                                 @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 @endif
@@ -99,7 +131,6 @@
                                             <label for="apellidos">Apellidos</label>
                                         </div>
                                     </div>
-
                                     <div class="form-floating mt-2">
                                         <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
                                         <label for="email">Correo</label>
@@ -112,7 +143,6 @@
                                         <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="PasswordConfirm">
                                         <label for="passwordConfirm">Confirmar Contraseña</label>
                                     </div>
-
                                     <div class="form-floating row g-2">
                                         <div class="form-floating col-6 mt-3">
                                             <input type="text" class="form-control" id="dni" name="dni" placeholder="dni">
@@ -144,37 +174,16 @@
                                             <label for="calle">Dirección</label>
                                         </div>
                                     </div>
-
                                     <input type="submit" class="mt-2 w-100 btn btn-lg btn-primary" value="Registrate">
                                 </form>
                             </div>
                         </div>
-
                     </div>
                     @endif
-
                 </div>
             </div>
-
-            <?php
-            // var_dump($datos);
-            // echo $datos['dias'];
-            // echo '<br>';
-            // echo $datos['coche'][0]->precio ;
-            // echo '<br>';
-            // echo $datos['recogida'];
-            // echo '<br>';
-            // echo $datos['devolucion'];
-            // echo '<br>';
-            // echo $datos['precioTotal'];
-            ?>
         </div>
-
-        <!-- -
-        @if (session()->get('tipo')=='cliente')
-            <h1>esto si</h1>
-        @endif -->
-
+    </div>
 </body>
 
 </html>

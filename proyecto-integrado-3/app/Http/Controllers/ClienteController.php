@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coches;
+use App\Models\Alquiler;
+
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +16,8 @@ class ClienteController extends Controller
 
     public function dashboard()
     {
-        return view('cliente.dashboard');
+        $alquileres= Alquiler::alquileres(session('usuario')[0]->id_Cliente);
+        return view('cliente.dashboard',['alquileres'=>$alquileres]);
     }
 
     /**
@@ -28,6 +31,7 @@ class ClienteController extends Controller
         $recogida = str_replace('T', ' ', $reserva['recogida']);
         $devolucion = str_replace('T', ' ', $reserva['devolucion']);
 
+        session(['datosPresupuesto' => NULL]);
         session(['recogida' => $recogida]);
         session(['devolucion' => $devolucion]);
         session(['sucursal' => $reserva['sucursal']]);
@@ -48,11 +52,31 @@ class ClienteController extends Controller
             $diff = $feche1->diff($feche2);
             $minutos = (($diff->days * 24) * 60) + ($diff->h * 60) + ($diff->i);
             $dias = ceil(($minutos / 60) / 24);
+            $fechaContrato= date('Y-m-d H:i');
             $precioTotal = $dias * $cocheElegido[0]->precio;
-            $datos = ['precioTotal' => $precioTotal, 'dias' => $dias, 'recogida' => $recogida, 'devolucion' => $devolucion, 'sucursal' => session('sucursal'), 'coche' => $cocheElegido];
+            $datos = ['precioTotal' => $precioTotal,
+                    'dias' => $dias,
+                    'recogida' => $recogida, 
+                    'devolucion' => $devolucion,
+                    'contrato'=>$fechaContrato, 
+                    'sucursal' => session('sucursal'), 
+                    'coche' => $cocheElegido];
         }
 
         session(['datosPresupuesto' => $datos]);
         return view('cliente.presupuesto', ['datos' => $datos]);
+    }
+
+    public function guardarAlquiler(Request $request){
+        $alquiler=new Alquiler(['id_Cliente'=>session('usuario')[0]->id_Cliente,
+                    'id_Coche'=>session('datosPresupuesto')['coche'][0]->id_Coche,
+                    'precio_total'=>session('datosPresupuesto')['precioTotal'],
+                    'fecha_contrato'=>session('datosPresupuesto')['contrato'],
+                    'fecha_inicio'=>session('datosPresupuesto')['recogida'],
+                    'fecha_fin'=>session('datosPresupuesto')['devolucion'],
+                    'observacion'=>'',
+                    'estado'=>'Preparación']);
+        $alquiler->save();
+        return redirect()->action([ClienteController::class, 'dashboard']);
     }
 }

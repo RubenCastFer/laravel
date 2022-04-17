@@ -125,6 +125,9 @@ class ClienteAuthController extends Controller
 
             $request->session()->regenerate();
             $request->session()->put('tipo', 'cliente');
+            $cliente = ClienteAuth::cliente($request->input('email'));
+            
+            session()->put('usuario', $cliente);
             if (!empty(session('datosPresupuesto'))) {
                 return redirect()->action([ClienteController::class, 'presupuesto']);
             }

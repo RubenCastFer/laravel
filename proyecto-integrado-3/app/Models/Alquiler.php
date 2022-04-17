@@ -4,36 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Alquiler extends Model
 {
     use HasFactory;
     protected $table = "alquiler";
+    protected $primaryKey = 'id_Alquiler';
     protected $fillable = ['id_Alquiler', 'id_Cliente', 'id_Coche', 'precio_total', 'fecha_contrato', 'fecha_inicio', 'fecha_fin', 'observacion', 'estado'];
 
-
-    //     SELECT id_Coche
-    //     FROM alquiler
-    //     WHERE ((alquiler.fecha_inicio <= '2022-04-08 11:00:00') 
-    //     AND (alquiler.fecha_fin >= '2022-04-08 11:00:00')) 
-    //     OR ((alquiler.fecha_inicio <= '2022-04-14 11:00:00')
-    //     AND (alquiler.fecha_fin >= '2022-04-14 11:00:00'))
-
-
-    // SELECT *
-    // FROM coche
-    // WHERE id_Coche NOT IN (1,2,3)
-
-    // el bueno
-    // SELECT *
-    // FROM coche
-    // WHERE id_Coche NOT IN (
-    //     SELECT id_Coche
-    // 	FROM alquiler
-    // 	WHERE ((alquiler.fecha_inicio <= '2022-04-08 11:00:00') 
-    // 	AND (alquiler.fecha_fin >= '2022-04-08 11:00:00')) 
-    // 	OR ((alquiler.fecha_inicio <= '2022-04-14 11:00:00')
-    // 	AND (alquiler.fecha_fin >= '2022-04-14 11:00:00')))
-
-
+    static public function alquileres($id_Cliente){
+        return DB::select('SELECT id_Alquiler, id_Cliente, alquiler.id_Coche, 
+                                    precio_total,fecha_contrato,fecha_inicio,fecha_fin,
+                                    observacion,alquiler.estado as estado_alquiler, 
+                                    bastidor,marca,modelo,color,matricula,imagen,
+                                    coche.estado AS estado_coche,precio 
+                            FROM `alquiler` 
+                            INNER JOIN coche 
+                            ON alquiler.id_Coche=coche.id_Coche 
+                            WHERE alquiler.id_Cliente=:id_Cliente',
+                            ['id_Cliente'=>$id_Cliente]);
+    }
 }

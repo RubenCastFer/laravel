@@ -9,17 +9,12 @@
     <title>Cliente dashboard</title>
     </style>
 </head>
-
 <body>
-
-
     <div class="container">
         <div class="row">
-
             @if(\Session::has('error'))
             <div class="alert alert-danger">{{ \Session::get('error') }}</div>
             @endif
-
             @foreach ($cochesLibres as $coche)
             <div class="row mt-3">
                 <div class="col-6">
@@ -40,24 +35,11 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-            @endforeach
-            <!-- <div>
-                <?php //echo session::get('usuario')[0]->name; 
-                ?>
-            </div> -->
+            @endforeach 
         </div>
-
-        <!-- -
-        @if (session()->get('tipo')=='cliente')
-            <h1>esto si</h1>
-        @endif -->
-
+    </div>
 </body>
-
 </html>
 @endsection

@@ -35,7 +35,13 @@ Route::get('/', function () {
 // Route::get('/cliente/logout', [ClienteAuthController::class, 'logout'])->name('cliente.logout');
 Route::get('/cliente/dashboard', [ClienteController::class, 'dashboard'])->name('cliente.dashboard')->middleware(['cliente']);
 
+Route::post('/cliente/coche', [ClienteController::class, 'elegirCoche']);
 
+Route::get('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
+
+Route::post('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
+
+Route::post('/cliente/pago', [ClienteController::class, 'guardarAlquiler']);
 
 
 // Route::get('/empleado/login', [EmpleadoAuthController::class, 'showLoginForm'])->name('empleado.login');
@@ -45,11 +51,8 @@ Route::get('/cliente/dashboard', [ClienteController::class, 'dashboard'])->name(
 
 Route::get('/empleado/dashboard', [EmpleadoController::class, 'dashboard'])->name('empleado.dashboard')->middleware(['empleado']);
 
-Route::post('/cliente/coche', [ClienteController::class, 'elegirCoche']);
 
-Route::get('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
 
-Route::post('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
 
 
 require __DIR__.'/auth.php';

@@ -27,11 +27,11 @@
           <label for="sucursal">Oficina de recogida</label>
         </div>
         <div class="col-3 form-floating">
-          <input type="datetime-local" class="form-control text-center" id="recogida" name="recogida" value="" min="">
+          <input type="datetime-local" class="form-control text-center" id="recogida" name="recogida" value="" min="" require>
           <label for="recogida">Recogida</label>
         </div>
         <div class="col-3 form-floating">
-          <input type="datetime-local" class="form-control text-center" id="devolucion" name="devolucion" value="" min="">
+          <input type="datetime-local" class="form-control text-center" id="devolucion" name="devolucion" value="" min="" require>
           <label for="devolucion">Devolución</label>
         </div>
         <div class="col-2 form-floating d-flex align-items-center ">
