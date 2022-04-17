@@ -22,13 +22,13 @@
         <ul class="navbar-nav">
           @if (session()->get('tipo')=='empleado')
           <li class="nav-item">
-            <a class="nav-link text-white" href="/empleado/logout">Reservas</a>
+            <a class="nav-link text-white" href="/empleado/reservas">Reservas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/empleado/logout">Coches</a>
+            <a class="nav-link text-white" href="/empleado/coches">Coches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/empleado/logout">Empleados</a>
+            <a class="nav-link text-white" href="/empleado/empleados">Empleados</a>
           </li>
 
           <li class="nav-item">
