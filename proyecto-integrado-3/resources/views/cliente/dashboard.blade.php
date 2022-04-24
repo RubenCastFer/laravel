@@ -17,7 +17,10 @@
             {{ \Session::get('error') }}
         </div>
         @endif
+        
         <h1 class="text-center mt-3">Bienvenido {{session('usuario')[0]->name}}</h1>
+        
+        
         <h2>Tus Contratos</h2>
         <div class="row mt-3">
             <h3>En curso</h3>
@@ -46,6 +49,8 @@
             @endif
             @endforeach
         </div>
+        
+        
         <div class="row mt-3">
             <h3>En preparación</h3>
             @foreach ($alquileres as $alquiler)
@@ -73,6 +78,8 @@
             @endif
             @endforeach
         </div>
+        
+        
         <div class="row mt-3">
             <h3>Finalizado</h3>
             @foreach ($alquileres as $alquiler)

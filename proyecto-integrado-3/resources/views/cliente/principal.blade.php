@@ -53,38 +53,38 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="5000">
-        <img src="image/aventura.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Aventuras</h5>
-          <p>Una gran colección de emocionates libros sobre aventuras</p>
+          <h5>Titulo</h5>
+          <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/cienciaFiccion.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Ciencia Ficción</h5>
-          <p>Una gran colección de libros de ciencia ficción</p>
+          <h5>Titulo</h5>
+          <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/fantasia.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Fantasía</h5>
-          <p>Una gran colección de emocionates aventuras de fantasía</p>
+          <h5>Titulo</h5>
+          <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/horror.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Horror</h5>
-          <p>Una gran colección de libros de terror</p>
+          <h5>Titulo</h5>
+          <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/romantica.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Romanticas</h5>
-          <p>Una gran colección de libros romanticos</p>
+          <h5>Titulo</h5>
+          <p>Texto</p>
         </div>
       </div>
     </div>

@@ -41,6 +41,12 @@ class ClienteController extends Controller
 
     public function presupuesto(Request $request)
     {
+        /**
+         * 
+         * Los datos se guardaran en una sesion en caso de que el usuario no este registrado
+         * o iniciado sesion, al hacerlo se recupera y continua el proceso con los datos de la sesion.
+         * 
+         */
         if (!empty(session('datosPresupuesto'))) {
             $datos = session('datosPresupuesto');
         } else {
