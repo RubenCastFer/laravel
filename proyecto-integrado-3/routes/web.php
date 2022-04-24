@@ -51,6 +51,11 @@ Route::post('/cliente/pago', [ClienteController::class, 'guardarAlquiler']);
 
 Route::get('/empleado/dashboard', [EmpleadoController::class, 'dashboard'])->name('empleado.dashboard')->middleware(['empleado']);
 
+Route::get('/empleado/tablaempleado', [EmpleadoController::class, 'tablaEmpleados'])->name('empleado.empleados')->middleware(['empleado']);
+
+Route::get('/empleado/tablacoche', [EmpleadoController::class, 'tablaCoches'])->name('empleado.coches')->middleware(['empleado']);
+
+Route::get('/empleado/tablaalquiler', [EmpleadoController::class, 'tablaAlquileres'])->name('empleado.alquileres')->middleware(['empleado']);
 
 
 
