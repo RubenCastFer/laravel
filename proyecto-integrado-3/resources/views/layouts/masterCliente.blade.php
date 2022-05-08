@@ -49,7 +49,10 @@
 
 
   <!-- <footer class="container-fluid position-absolute bottom-0 bg-secondary"> -->
-  <footer class="container-fluid bg-secondary">
+  <br>
+  <br>
+  <br>
+  <footer class="container-fluid footer fixed-bottom bg-secondary">
 
     <div>
       <p class="text-white text-center">Rubén Castellano Fernández, 2022</p>

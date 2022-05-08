@@ -55,10 +55,17 @@ Route::get('/empleado/tablaempleado', [EmpleadoController::class, 'tablaEmpleado
 
 Route::get('/empleado/tablacoche', [EmpleadoController::class, 'tablaCoches'])->name('empleado.coches')->middleware(['empleado']);
 
+Route::get('/empleado/modificarcoche/{id}', [EmpleadoController::class, 'editCoche'])->middleware(['empleado']);
+
+Route::put('/empleado/modificarcoche/{id}',  [EmpleadoController::class, 'updateCoche'])->middleware(['empleado']);
+
+
+
 Route::get('/empleado/tablaalquiler', [EmpleadoController::class, 'tablaAlquileres'])->name('empleado.alquileres')->middleware(['empleado']);
 
+Route::get('/empleado/modificaralquiler/{id}', [EmpleadoController::class, 'editAlquiler'])->middleware(['empleado']);
 
-
+Route::put('/empleado/modificaralquiler/{id}',  [EmpleadoController::class, 'updateAlquiler'])->middleware(['empleado']);
 
 require __DIR__.'/auth.php';
 

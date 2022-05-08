@@ -1,18 +1,18 @@
 @extends('layouts.masterEmpleado')
-@section('title','Alquileres')
+@section('title','Alquiler')
 @section('content')
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Alquileres</title>
+    <title>Alquiler</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col-6 offset-3">
-                <h1 class="text-center m-5">Alquileres</h1>
+                <h1 class="text-center m-5">Alquiler</h1>
                 @if(\Session::has('error'))
                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                 @endif
@@ -27,12 +27,9 @@
                 <th>Fecha de Contrato</th>
                 <th>Fecha de Inicio</th>
                 <th>Fecha de Fin</th>
-                <th>Observación</th>
+                <th>Observacion</th>
                 <th>Estado</th>
-                <th>Modificar</th>
             </tr>
-
-            @foreach ($alquileres as $alquiler)
             <tr>
                 <td>{{ $alquiler->id_Alquiler }}</td>
                 <td>{{ $alquiler->id_Cliente }}</td>
@@ -43,12 +40,30 @@
                 <td>{{ $alquiler->fecha_fin }}</td>
                 <td>{{ $alquiler->observacion }}</td>
                 <td>{{ $alquiler->estado }}</td>
-                <td><a class="btn btn-success" href="/empleado/modificaralquiler/{{ $alquiler->id_Alquiler }}">Editar</a></td>
             </tr>
-
-            @endforeach
         </table>
+        <div>
+            <form method="post" action="/empleado/modificaralquiler/{{ $alquiler->id_Alquiler }}">
+                @method('PUT')
+                @csrf
+                <label for="observacion">Observacion:</label>
+                <br>
+                <textarea id="observacion" name="observacion" rows="4" cols="50" maxlength="250" placeholder="Detalles"></textarea>
+                <br>
+                <label for="estado">Estado:</label>
+                <br>
+                <select name="estado" id="estado">
+                    <option value="" selected></option>
+                    <option value="Preparación">Preparación</option>
+                    <option value="En curso">En curso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+                <br>
+                <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
+            </form>
+        </div>
     </div>
+
 </body>
 
 </html>

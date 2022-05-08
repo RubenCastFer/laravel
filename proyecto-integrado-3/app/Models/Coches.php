@@ -10,6 +10,7 @@ class Coches extends Model
 {
     use HasFactory;
     protected $table = "coche";
+    protected $primaryKey = 'id_Coche';
     protected $fillable = ['id_Coche', 'bastidor', 'marca', 'modelo', 'color', 'matricula', 'imagen', 'estado', 'precio'];
 
 
@@ -34,20 +35,6 @@ class Coches extends Model
                                     OR ((fecha_inicio <= :devolucion1)
                                     AND (fecha_fin >= :devolucion2)))',
                                     ['recogida1'=>$recogida,'recogida2'=>$recogida,'devolucion1'=>$devolucion,'devolucion2'=>$devolucion]);
-        // $cochesLibre = DB::table('coche')
-        //                     ->select('*')
-        //                     ->whereNotIn('id_Coche', function($query,$recogida,$devolucion){
-        //                         $query->select('alquiler.id_Coche')
-        //                         ->from('alquiler')
-        //                         ->where(function($query,$recogida){
-        //                             $query->where('alquiler.fecha_inicio','<=',$recogida)
-        //                                 ->where('alquiler.fecha_fin','>=',$recogida);
-        //                         })
-        //                         ->orWhere(function($query,$devolucion){
-        //                             $query->where('alquiler.fecha_inicio','<=',$devolucion)
-        //                                 ->where('alquiler.fecha_fin','>=',$devolucion);
-        //                         });
-        //                     })->get();
         return $cochesLibres;
     }
 
@@ -56,4 +43,5 @@ class Coches extends Model
         FROM coche
         WHERE id_Coche=:id_Coche',['id_Coche'=>$id_Coche]);
     }
+
 }
