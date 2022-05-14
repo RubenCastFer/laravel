@@ -11,7 +11,7 @@ class Coches extends Model
     use HasFactory;
     protected $table = "coche";
     protected $primaryKey = 'id_Coche';
-    protected $fillable = ['id_Coche', 'bastidor', 'marca', 'modelo', 'color', 'matricula', 'imagen', 'estado', 'precio'];
+    protected $fillable = ['id_Coche', 'bastidor', 'marca', 'modelo', 'color', 'matricula','imagen', 'estado', 'precio'];
 
 
     // SELECT *

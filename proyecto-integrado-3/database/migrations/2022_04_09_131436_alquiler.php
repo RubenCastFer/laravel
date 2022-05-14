@@ -23,7 +23,7 @@ return new class extends Migration
             $table->dateTime('fecha_contrato');
             $table->dateTime('fecha_inicio');
             $table->dateTime('fecha_fin');
-            $table->string('observacion');
+            $table->string('observacion')->nullable();
             $table->string('estado');
             $table->timestamps();
 

@@ -18,49 +18,103 @@
                 @endif
             </div>
         </div>
-        <table class="table" style="margin:auto">
-            <tr>
-                <th>Nº Coche</th>
-                <th>Bastidor</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Color</th>
-                <th>Matricula</th>
-                <th>Imagen</th>
-                <th>Estado</th>
-            </tr>
-            <tr>
-                <td>{{ $coche->id_Coche }}</td>
-                <td>{{ $coche->bastidor }}</td>
-                <td>{{ $coche->marca }}</td>
-                <td>{{ $coche->modelo }}</td>
-                <td>{{ $coche->color }}</td>
-                <td>{{ $coche->matricula }}</td>
-                <td>{{ $coche->imagen }}</td>
-                <td>{{ $coche->estado }}</td>
-
-            </tr>
-        </table>
+        @if($coche==null)
         <div>
-            <form method="post" action="/empleado/modificarcoche/{{ $coche->id_Coche }}">
+            <form method="post" action="/empleado/modificarcoche" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <label for="observacion">Observacion:</label>
+                <label for="bastidor">Bastidor</label>
                 <br>
-                <textarea id="observacion" name="observacion" rows="4" cols="50" maxlength="250" placeholder="Detalles"></textarea>
+                <input type="text" name="bastidor">
+                <br>
+                <label for="marca">Marca</label>
+                <br>
+                <input type="text" name="marca">
+                <br>
+                <label for="modelo">Modelo</label>
+                <br>
+                <input type="text" name="modelo">
+                <br>
+                <label for="color">Color</label>
+                <br>
+                <input type="text" name="color">
+                <br>
+                <label for="matricula">Matricula</label>
+                <br>
+                <input type="text" name="matricula">
+                <br>
+
+                <label for="precio">Precio</label>
+                <br>
+                <input type="number" name="precio">
+                <br>
+                <label for="archivo">Archivo:</label>
+                <br>
+                <input type="file" name="archivo">
                 <br>
                 <label for="estado">Estado:</label>
                 <br>
-                <select name="estado" id="estado">
-                    <option value="" selected></option>
-                    <option value="Preparación">Preparación</option>
-                    <option value="En curso">En curso</option>
-                    <option value="Finalizado">Finalizado</option>
+                <select name="estado">
+                    <option value="A punto" selected>A punto</option>
+                    <option value="Averiado">Averiado</option>
+                    <option value="En reparación">En reparación</option>
                 </select>
                 <br>
+
+
                 <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
             </form>
         </div>
+        @else
+        <div>
+            <form method="post" action="/empleado/modificarcoche" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
+                <input type="hidden" name="id_Coche" value="{{ $coche->id_Coche }}">
+                <br>
+                <label for="bastidor">Bastidor</label>
+                <br>
+                <input type="text" name="bastidor" value="{{ $coche->bastidor }}" disabled>
+                <br>
+                <label for="marca">Marca</label>
+                <br>
+                <input type="text" name="marca" value="{{ $coche->marca }}" disabled>
+                <br>
+                <label for="modelo">Modelo</label>
+                <br>
+                <input type="text" name="modelo" value="{{ $coche->modelo }}" disabled>
+                <br>
+                <label for="color">Color</label>
+                <br>
+                <input type="text" name="color" value="{{ $coche->color }}">
+                <br>
+                <label for="matricula">Matricula</label>
+                <br>
+                <input type="text" name="matricula" value="{{ $coche->matricula }}" disabled>
+                <br>
+                <label for="precio">Precio</label>
+                <br>
+                <input type="number" name="precio" value="{{ $coche->precio }}">
+                <br>
+                <label for="archivo">Archivo:</label>
+                <br>
+                <input type="file" name="archivo">
+                <br>
+                <label for="estado">Estado:</label>
+                <br>
+                <select name="estado">
+                    <option value="A punto" selected>A punto</option>
+                    <option value="Averiado">Averiado</option>
+                    <option value="En reparación">En reparación</option>
+                </select>
+                <br>
+
+
+                <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
+            </form>
+        </div>
+        @endif
+
     </div>
 
 </body>

@@ -20,7 +20,7 @@
 
             </div>
             <div class="col-3 position-relative">
-                <a class="btn btn-success position-absolute bottom-0 end-0" href="/empleado/modificaralquiler">Añadir nuevo coche</a>
+                <a class="btn btn-success position-absolute bottom-0 end-0" href="/empleado/modificarcoche/null">Añadir nuevo coche</a>
             </div>
             <table class="table" style="margin:auto">
                 <tr>
@@ -49,7 +49,7 @@
                     <td>{{ $coche->estado }}</td>
                     <td>{{ $coche->precio }}€</td>
                     <td><a class="btn btn-primary" href="/empleado/modificarcoche/{{ $coche->id_Coche }}">Editar</a></td>
-                    <td><a class="btn btn-danger" href="/empleado/modificarcoche/{{ $coche->id_Coche }}">Borrar</a></td>
+                    <td><a class="btn btn-danger" href="/empleado/eliminarcoche/{{ $coche->id_Coche }}">Borrar</a></td>
                 </tr>
                 @endforeach
             </table>

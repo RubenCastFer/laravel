@@ -57,7 +57,9 @@ Route::get('/empleado/tablacoche', [EmpleadoController::class, 'tablaCoches'])->
 
 Route::get('/empleado/modificarcoche/{id}', [EmpleadoController::class, 'editCoche'])->middleware(['empleado']);
 
-Route::put('/empleado/modificarcoche/{id}',  [EmpleadoController::class, 'updateCoche'])->middleware(['empleado']);
+Route::put('/empleado/modificarcoche',  [EmpleadoController::class, 'updateCoche'])->middleware(['empleado']);
+
+Route::get('/empleado/eliminarcoche/{id}', [EmpleadoController::class, 'destroyCoche'])->middleware(['empleado']);
 
 
 

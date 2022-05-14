@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('modelo');
             $table->string('color');
             $table->string('matricula');
-            $table->string('imagen');
-            $table->string('estado');
+            $table->string('imagen')->nullable();
+            $table->string('estado')->nullable();
             $table->decimal('precio', $precision = 4, $scale = 2);
             $table->timestamps();
         });
