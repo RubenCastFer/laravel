@@ -53,6 +53,14 @@ Route::get('/empleado/dashboard', [EmpleadoController::class, 'dashboard'])->nam
 
 Route::get('/empleado/tablaempleado', [EmpleadoController::class, 'tablaEmpleados'])->name('empleado.empleados')->middleware(['empleado']);
 
+Route::get('/empleado/modificarempleado/{id}', [EmpleadoController::class, 'editEmpleado'])->middleware(['empleado']);
+
+Route::put('/empleado/modificarempleado',  [EmpleadoController::class, 'updateEmpleado'])->middleware(['empleado']);
+
+Route::get('/empleado/eliminarempleado/{id}', [EmpleadoController::class, 'destroyEmpleado'])->middleware(['empleado']);
+
+
+
 Route::get('/empleado/tablacoche', [EmpleadoController::class, 'tablaCoches'])->name('empleado.coches')->middleware(['empleado']);
 
 Route::get('/empleado/modificarcoche/{id}', [EmpleadoController::class, 'editCoche'])->middleware(['empleado']);

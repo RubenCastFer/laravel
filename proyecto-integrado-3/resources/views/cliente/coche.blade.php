@@ -19,7 +19,7 @@
             <div class="row mt-3">
                 <div class="col-6">
                     <!-- <img src="{!! asset('storage{{ $coche->imagen }}') !!}" class="img-fluid" alt="..."> -->
-                    <img src="/storage/{{ $coche->imagen }}" alt="image">
+                    <img src="/storage/{{ $coche->imagen }}" class="img-fluid" alt="image">
                     
                 </div>
                 <div class="col-6 d-flex align-items-center">

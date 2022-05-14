@@ -21,6 +21,56 @@ class EmpleadoController extends Controller
         return view('empleado.empleados');
     }
 
+    public function editEmpleado($id_Coche)
+    {
+        $coche = null;
+        if ($id_Coche != null) {
+            $coche = Coches::find($id_Coche);
+        }
+        return view('empleado.modificarcoche', ['coche' => $coche]);
+    }
+
+    public function updateEmpleado(Request $request)
+    {
+        $coche = null;
+        //$path=null;
+        $img = null;
+        $exten = null;
+        if ($request->input('id_Coche') != null) {
+            $coche = Coches::find($request->input('id_Coche'));
+            $img = $coche->marca . " " . $coche->modelo;
+            $coche->fill($request->all());
+            if ($request->file('archivo') != null) {
+                Storage::disk('public')->delete($coche -> img);
+            }
+        } else {
+            $coche = new Coches($request->all());
+            $img = $request->input('marca') . " " . $request->input('modelo');
+        }
+        if ($request->file('archivo') != null) {
+            //$path=$request->file('archivo')->store('storage');
+            $file = $request->file('archivo');
+            $exten = $file->extension();
+            $path = $request->file('archivo')->storePubliclyAs(
+                'storage',
+                $img . "." . $exten,
+                'public'
+            );
+            $coche->fill(['imagen' => "/" . $path]);
+        }
+        //$coche->fill(['imagen'=>$path]);
+        $coche->save();
+        return redirect()->action([EmpleadoController::class, 'tablaCoches']);
+    }
+
+    public function destroyEmpleado($id)
+    {
+        $coche = Coches::find($id);
+        Storage::disk('public')->delete($coche -> imagen);
+        $coche->delete();
+        return redirect()->action([EmpleadoController::class, 'tablaCoches']);
+    }
+
 
 
     public function tablaCoches()
@@ -48,8 +98,8 @@ class EmpleadoController extends Controller
             $coche = Coches::find($request->input('id_Coche'));
             $img = $coche->marca . " " . $coche->modelo;
             $coche->fill($request->all());
-            if ($request->file('archivo') != null) {
-                Storage::disk('public')->delete($coche -> img);
+            if ($request->file('archivo') != null & $img!=null) {
+                Storage::disk('public')->delete($coche -> imagen);
             }
         } else {
             $coche = new Coches($request->all());

@@ -19,7 +19,7 @@
             @endif
             <div class="col-3">
                 <h1>{{$datos['coche'][0]->marca}} {{$datos['coche'][0]->modelo}}</h1>
-                <img src="{!! asset('img/cocheLogin.jpg') !!}" class="img-fluid" alt="...">
+                <img src="/storage/{{$datos['coche'][0]->imagen}}" class="img-fluid" alt="image">
                 <h6 class="mt-3 ms-3">Recogida: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['recogida']))}}</h6>
                 <h6 class="mt-3 ms-3">Devolución: {{$datos['sucursal']}} <br>Fecha: {{date('d M Y H:i', strtotime($datos['devolucion']))}}</h6>
                 <h6 class="mt-3 ms-3">Tarifa: {{$datos['coche'][0]->precio}}</h6>

@@ -45,31 +45,12 @@ $clientes = array(
 
 /* `agencia_alquiler1`.`coche` */
 $coches = array(
-  array('id_Coche' => '1','bastidor' => 'WAUAC68D01A148342','marca' => 'Hyundai','modelo' => 'Sonata','color' => 'Mauv','matricula' => '5292cfl','imagen' => '','estado' => '','precio' => '39.12'),
-  array('id_Coche' => '2','bastidor' => '5LMJJ3H56CE047276','marca' => 'Kia','modelo' => 'Sedona','color' => 'Indigo','matricula' => '6109ssx','imagen' => '','estado' => '','precio' => '17.94'),
-  array('id_Coche' => '3','bastidor' => 'WBA4A9C57FG444483','marca' => 'GMC','modelo' => 'Sierra 1500','color' => 'Green','matricula' => '0033wio','imagen' => '','estado' => '','precio' => '22.70'),
-  array('id_Coche' => '4','bastidor' => '1G6DA1E34C0905761','marca' => 'Toyota','modelo' => 'MR2','color' => 'Red','matricula' => '7223dig','imagen' => '','estado' => '','precio' => '44.13'),
-  array('id_Coche' => '5','bastidor' => '3VW117AU7FM879785','marca' => 'Lincoln','modelo' => 'Town Car','color' => 'Puce','matricula' => '8466esw','imagen' => '','estado' => '','precio' => '18.55'),
-  array('id_Coche' => '6','bastidor' => '2B3CK4CV5AH104293','marca' => 'Buick','modelo' => 'Electra','color' => 'Orange','matricula' => '6239pem','imagen' => '','estado' => '','precio' => '23.65'),
-  array('id_Coche' => '7','bastidor' => 'WBAUN1C59AV756430','marca' => 'Ford','modelo' => 'Bronco II','color' => 'Red','matricula' => '5635vgq','imagen' => '','estado' => '','precio' => '35.96'),
-  array('id_Coche' => '8','bastidor' => 'WBAET37495N629061','marca' => 'Chevrolet','modelo' => 'Cavalier','color' => 'Orange','matricula' => '2451tiv','imagen' => '','estado' => '','precio' => '48.58'),
-  array('id_Coche' => '9','bastidor' => 'WAUBG78E46A853904','marca' => 'Honda','modelo' => 'Odyssey','color' => 'Red','matricula' => '8904bdn','imagen' => '','estado' => '','precio' => '43.03'),
-  array('id_Coche' => '10','bastidor' => 'JH4KC1F33EC125506','marca' => 'Mercedes-Benz','modelo' => '300E','color' => 'Crimson','matricula' => '3043cpg','imagen' => '','estado' => '','precio' => '23.68'),
-  array('id_Coche' => '11','bastidor' => '1C3CDFEB0ED069709','marca' => 'Mitsubishi','modelo' => 'Lancer Evolution','color' => 'Crimson','matricula' => '6412ill','imagen' => '','estado' => '','precio' => '49.17'),
-  array('id_Coche' => '12','bastidor' => 'JTHBC1KS0B5571870','marca' => 'Hyundai','modelo' => 'Tucson','color' => 'Pink','matricula' => '3645pqm','imagen' => '','estado' => '','precio' => '35.32'),
-  array('id_Coche' => '13','bastidor' => '1YVHZ8BA6A5781411','marca' => 'Isuzu','modelo' => 'VehiCROSS','color' => 'Crimson','matricula' => '4164wgh','imagen' => '','estado' => '','precio' => '48.04'),
-  array('id_Coche' => '14','bastidor' => 'WBAKA8C53AC317084','marca' => 'Oldsmobile','modelo' => '98','color' => 'Khaki','matricula' => '7043yxq','imagen' => '','estado' => '','precio' => '28.97'),
-  array('id_Coche' => '15','bastidor' => 'WBAEK13527C272407','marca' => 'BMW','modelo' => 'M5','color' => 'Puce','matricula' => '2284evx','imagen' => '','estado' => '','precio' => '40.92'),
-  array('id_Coche' => '16','bastidor' => '3N1AB6AP7BL796025','marca' => 'Nissan','modelo' => 'Pathfinder','color' => 'Yellow','matricula' => '1965wpn','imagen' => '','estado' => '','precio' => '37.69'),
-  array('id_Coche' => '17','bastidor' => '5UXKS4C51E0541257','marca' => 'Dodge','modelo' => 'Magnum','color' => 'Maroon','matricula' => '6183mhy','imagen' => '','estado' => '','precio' => '38.42'),
-  array('id_Coche' => '18','bastidor' => 'JM1NC2JF7E0189488','marca' => 'Toyota','modelo' => 'Corolla','color' => 'Aquamarine','matricula' => '2613mts','imagen' => '','estado' => '','precio' => '34.15'),
-  array('id_Coche' => '19','bastidor' => 'WAUHF78P96A811582','marca' => 'Dodge','modelo' => 'Journey','color' => 'Blue','matricula' => '6136pbd','imagen' => '','estado' => '','precio' => '29.60'),
-  array('id_Coche' => '20','bastidor' => '1G6KD57Y07U639538','marca' => 'Lexus','modelo' => 'LS','color' => 'Khaki','matricula' => '2822ffm','imagen' => '','estado' => '','precio' => '41.91'),
-  array('id_Coche' => '21','bastidor' => '1FTEW1CM0EF376403','marca' => 'Volvo','modelo' => 'V50','color' => 'Fuscia','matricula' => '1132sqt','imagen' => '','estado' => '','precio' => '40.10'),
-  array('id_Coche' => '22','bastidor' => 'WA1YD64B53N084355','marca' => 'Toyota','modelo' => '4Runner','color' => 'Maroon','matricula' => '9151xgs','imagen' => '','estado' => '','precio' => '23.32'),
-  array('id_Coche' => '23','bastidor' => 'JTHBK1GG5E2400738','marca' => 'Saab','modelo' => '9000','color' => 'Crimson','matricula' => '6922xow','imagen' => '','estado' => '','precio' => '17.75'),
-  array('id_Coche' => '24','bastidor' => '1N6AF0KY1FN777415','marca' => 'Mercedes-Benz','modelo' => '300TE','color' => 'Yellow','matricula' => '2698zeg','imagen' => '','estado' => '','precio' => '31.70'),
-  array('id_Coche' => '25','bastidor' => 'WAUHFAFL3CN222190','marca' => 'Spyker','modelo' => 'C8','color' => 'Aquamarine','matricula' => '5758ayu','imagen' => '','estado' => '','precio' => '27.31')
+  array('id_Coche' => '1','bastidor' => 'WAUAC68D01A148342','marca' => 'Hyundai','modelo' => 'Sonata','color' => 'Rojo','matricula' => '5292cfl','imagen' => '/storage/Hyundai Sonata.jpg','estado' => 'A punto','precio' => '39.12'),
+  array('id_Coche' => '2','bastidor' => '5LMJJ3H56CE047276','marca' => 'Kia','modelo' => 'Sedona','color' => 'Negro','matricula' => '6109ssx','imagen' => '/storage/Kia Sedona.webp','estado' => 'A punto','precio' => '17.94'),
+  array('id_Coche' => '9','bastidor' => 'WAUBG78E46A853904','marca' => 'Honda','modelo' => 'Odyssey','color' => 'Blanco','matricula' => '8904bdn','imagen' => '/storage/Honda Odyssey.webp','estado' => 'A punto','precio' => '43.03'),
+  array('id_Coche' => '11','bastidor' => '1C3CDFEB0ED069709','marca' => 'Mitsubishi','modelo' => 'Lancer Evolution','color' => 'Blanco','matricula' => '6412ill','imagen' => '/storage/Mitsubishi Lancer Evolution.jpg','estado' => 'A punto','precio' => '49.17'),
+  array('id_Coche' => '12','bastidor' => 'JTHBC1KS0B5571870','marca' => 'Hyundai','modelo' => 'Tucson','color' => 'Blanco','matricula' => '3645pqm','imagen' => '/storage/Hyundai Tucson.jpg','estado' => 'A punto','precio' => '35.32'),
+  array('id_Coche' => '15','bastidor' => 'WBAEK13527C272407','marca' => 'BMW','modelo' => 'M5','color' => 'Azul','matricula' => '2284evx','imagen' => '/storage/BMW M5.webp','estado' => 'A punto','precio' => '40.92'),
 );
 
 /* `agencia_alquiler1`.`empleado` */

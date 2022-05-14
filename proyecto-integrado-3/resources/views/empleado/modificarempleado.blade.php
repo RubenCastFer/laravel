@@ -1,26 +1,26 @@
 @extends('layouts.masterEmpleado')
-@section('title','Coche')
+@section('title','Empleado')
 @section('content')
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Coche</title>
+    <title>Empleado</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col-6 offset-3">
-                <h1 class="text-center m-5">Coche</h1>
+                <h1 class="text-center m-5">Empleado</h1>
                 @if(\Session::has('error'))
                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                 @endif
             </div>
         </div>
-        @if($coche==null)
+        @if($empleado==null)
         <div>
-            <form method="post" action="/empleado/modificarcoche" enctype="multipart/form-data">
+            <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <label for="bastidor">Bastidor</label>
@@ -48,68 +48,40 @@
                 <br>
                 <input type="number" name="precio">
                 <br>
-                <label for="archivo">Archivo:</label>
-                <br>
-                <input type="file" name="archivo">
-                <br>
-                <label for="estado">Estado:</label>
-                <br>
-                <select name="estado">
-                    <option value="A punto" selected>A punto</option>
-                    <option value="Averiado">Averiado</option>
-                    <option value="En reparación">En reparación</option>
-                </select>
-                <br>
-
-
-                <input type="submit" class="btn btn-primary mt-2" value="Agregar coche">
+                <input type="submit" class="btn btn-primary mt-2" value="Agregar empleado">
             </form>
         </div>
         @else
         <div>
-            <form method="post" action="/empleado/modificarcoche" enctype="multipart/form-data">
+            <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <input type="hidden" name="id_Coche" value="{{ $coche->id_Coche }}">
+                <input type="hidden" name="id_Coche" value="{{ $empleado->id_Coche }}">
                 <br>
                 <label for="bastidor">Bastidor</label>
                 <br>
-                <input type="text" name="bastidor" value="{{ $coche->bastidor }}" disabled>
+                <input type="text" name="bastidor" value="{{ $empleado->bastidor }}" disabled>
                 <br>
                 <label for="marca">Marca</label>
                 <br>
-                <input type="text" name="marca" value="{{ $coche->marca }}" disabled>
+                <input type="text" name="marca" value="{{ $empleado->marca }}" disabled>
                 <br>
                 <label for="modelo">Modelo</label>
                 <br>
-                <input type="text" name="modelo" value="{{ $coche->modelo }}" disabled>
+                <input type="text" name="modelo" value="{{ $empleado->modelo }}" disabled>
                 <br>
                 <label for="color">Color</label>
                 <br>
-                <input type="text" name="color" value="{{ $coche->color }}">
+                <input type="text" name="color" value="{{ $empleado->color }}">
                 <br>
                 <label for="matricula">Matricula</label>
                 <br>
-                <input type="text" name="matricula" value="{{ $coche->matricula }}" disabled>
+                <input type="text" name="matricula" value="{{ $empleado->matricula }}" disabled>
                 <br>
                 <label for="precio">Precio</label>
                 <br>
-                <input type="number" name="precio" value="{{ $coche->precio }}">
+                <input type="number" name="precio" value="{{ $empleado->precio }}">
                 <br>
-                <label for="archivo">Archivo:</label>
-                <br>
-                <input type="file" name="archivo">
-                <br>
-                <label for="estado">Estado:</label>
-                <br>
-                <select name="estado">
-                    <option value="A punto" selected>A punto</option>
-                    <option value="Averiado">Averiado</option>
-                    <option value="En reparación">En reparación</option>
-                </select>
-                <br>
-
-
                 <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
             </form>
         </div>
