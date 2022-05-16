@@ -12,7 +12,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary ">
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/empleado/login"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" style width="50px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
   <br>
   <br>
   <br>
-  <footer class="container-fluid footer fixed-bottom bg-secondary">
+  <footer class="container-fluid footer fixed-bottom bg-dark">
     <div>
       <p class="text-white text-center">Rubén Castellano Fernández, 2022</p>
     </div>

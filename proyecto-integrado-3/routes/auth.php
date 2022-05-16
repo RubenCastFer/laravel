@@ -26,6 +26,13 @@ Route::get('/empleado/login', [EmpleadoAuthController::class, 'showLoginForm'])-
 
 Route::post('/empleado/login', [EmpleadoAuthController::class, 'login']);
 
+Route::put('/empleado/modificarempleado',  [EmpleadoAuthController::class, 'updateEmpleado'])->middleware(['empleado']);
+
+Route::get('/empleado/cambiopassword', [EmpleadoAuthController::class, 'showcambiarContrasenya'])->middleware(['empleado']);
+
+Route::put('/empleado/cambiopassword',  [EmpleadoAuthController::class, 'cambiarContrasenya'])->middleware(['empleado']);
+
+
 
 // Route::middleware('guest')->group(function () {
 // Route::get('register', [RegisteredUserController::class, 'create'])

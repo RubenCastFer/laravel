@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('ciudad');
             $table->string('cp');
             $table->string('calle');
-            $table->string('puesto');
+            $table->string('puesto')->nullable();
             $table->rememberToken('remember_token');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();

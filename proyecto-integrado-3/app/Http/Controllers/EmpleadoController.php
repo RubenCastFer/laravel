@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alquiler;
 use App\Models\Coches;
+use App\Models\EmpleadoAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,62 +14,31 @@ class EmpleadoController extends Controller
 
     public function dashboard()
     {
+        
         return view('empleado.dashboard');
     }
 
     public function tablaEmpleados()
     {
-        return view('empleado.empleados');
+        $empleados = EmpleadoAuth::allEmpleados ();
+        return view('empleado.empleados', ['empleados' => $empleados]);
     }
 
-    public function editEmpleado($id_Coche)
+    public function editEmpleado($id_Empleado)
     {
-        $coche = null;
-        if ($id_Coche != null) {
-            $coche = Coches::find($id_Coche);
+        $empleado = null;
+        if ($id_Empleado != "null") {
+            $result = EmpleadoAuth::findEmpleado($id_Empleado);
+            $empleado=$result[0];
         }
-        return view('empleado.modificarcoche', ['coche' => $coche]);
-    }
-
-    public function updateEmpleado(Request $request)
-    {
-        $coche = null;
-        //$path=null;
-        $img = null;
-        $exten = null;
-        if ($request->input('id_Coche') != null) {
-            $coche = Coches::find($request->input('id_Coche'));
-            $img = $coche->marca . " " . $coche->modelo;
-            $coche->fill($request->all());
-            if ($request->file('archivo') != null) {
-                Storage::disk('public')->delete($coche -> img);
-            }
-        } else {
-            $coche = new Coches($request->all());
-            $img = $request->input('marca') . " " . $request->input('modelo');
-        }
-        if ($request->file('archivo') != null) {
-            //$path=$request->file('archivo')->store('storage');
-            $file = $request->file('archivo');
-            $exten = $file->extension();
-            $path = $request->file('archivo')->storePubliclyAs(
-                'storage',
-                $img . "." . $exten,
-                'public'
-            );
-            $coche->fill(['imagen' => "/" . $path]);
-        }
-        //$coche->fill(['imagen'=>$path]);
-        $coche->save();
-        return redirect()->action([EmpleadoController::class, 'tablaCoches']);
+        return view('empleado.modificarempleado', ['empleado' => $empleado]);
     }
 
     public function destroyEmpleado($id)
     {
-        $coche = Coches::find($id);
-        Storage::disk('public')->delete($coche -> imagen);
-        $coche->delete();
-        return redirect()->action([EmpleadoController::class, 'tablaCoches']);
+        $empleado = EmpleadoAuth::find($id);
+        $empleado->delete();
+        return redirect()->action([EmpleadoController::class, 'tablaEmpleados']);
     }
 
 
@@ -82,7 +52,7 @@ class EmpleadoController extends Controller
     public function editCoche($id_Coche)
     {
         $coche = null;
-        if ($id_Coche != null) {
+        if ($id_Coche != "null") {
             $coche = Coches::find($id_Coche);
         }
         return view('empleado.modificarcoche', ['coche' => $coche]);

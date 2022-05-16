@@ -23,30 +23,48 @@
             <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <label for="bastidor">Bastidor</label>
+                <label for="name">Nombre</label>
                 <br>
-                <input type="text" name="bastidor">
+                <input type="text" name="name">
                 <br>
-                <label for="marca">Marca</label>
+                <label for="apellidos">Apellidos</label>
                 <br>
-                <input type="text" name="marca">
+                <input type="text" name="apellidos">
                 <br>
-                <label for="modelo">Modelo</label>
+                <label for="email">Correo</label>
                 <br>
-                <input type="text" name="modelo">
+                <input type="email" name="email">
                 <br>
-                <label for="color">Color</label>
+                <label for="dni">DNI</label>
                 <br>
-                <input type="text" name="color">
+                <input type="text" name="dni">
                 <br>
-                <label for="matricula">Matricula</label>
+                <label for="telefono">Telefono</label>
                 <br>
-                <input type="text" name="matricula">
+                <input type="number" name="telefono">
                 <br>
-
-                <label for="precio">Precio</label>
+                <label for="pais">Pais</label>
                 <br>
-                <input type="number" name="precio">
+                <input type="text" name="pais">
+                <br>
+                <label for="provincia">Provincia</label>
+                <br>
+                <input type="text" name="provincia">
+                <br><label for="ciudad">Ciudad</label>
+                <br>
+                <input type="text" name="ciudad">
+                <br>
+                <label for="cp">Código Postal</label>
+                <br>
+                <input type="text" name="cp">
+                <br>
+                <label for="calle">Calle</label>
+                <br>
+                <input type="text" name="calle">
+                <br>
+                <label for="puesto">Puesto</label>
+                <br>
+                <input type="text" name="puesto">
                 <br>
                 <input type="submit" class="btn btn-primary mt-2" value="Agregar empleado">
             </form>
@@ -56,31 +74,50 @@
             <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <input type="hidden" name="id_Coche" value="{{ $empleado->id_Coche }}">
+                <input type="hidden" name="id_Empleado" value="{{ $empleado->id_Empleado }}">
                 <br>
-                <label for="bastidor">Bastidor</label>
+                <label for="name">Nombre</label>
                 <br>
-                <input type="text" name="bastidor" value="{{ $empleado->bastidor }}" disabled>
+                <input type="text" name="name" value="{{ $empleado->name }}">
                 <br>
-                <label for="marca">Marca</label>
+                <label for="apellidos">Apellidos</label>
                 <br>
-                <input type="text" name="marca" value="{{ $empleado->marca }}" disabled>
+                <input type="text" name="apellidos" value="{{ $empleado->apellidos }}">
                 <br>
-                <label for="modelo">Modelo</label>
+                <label for="email">Correo</label>
                 <br>
-                <input type="text" name="modelo" value="{{ $empleado->modelo }}" disabled>
+                <input type="email" name="email" value="{{ $empleado->email }}">
                 <br>
-                <label for="color">Color</label>
+                <label for="dni">DNI</label>
                 <br>
-                <input type="text" name="color" value="{{ $empleado->color }}">
+                <input type="text" name="dni" value="{{ $empleado->dni }}">
                 <br>
-                <label for="matricula">Matricula</label>
+                <label for="telefono">Telefono</label>
                 <br>
-                <input type="text" name="matricula" value="{{ $empleado->matricula }}" disabled>
+                <input type="number" name="telefono" value="{{ $empleado->telefono }}">
                 <br>
-                <label for="precio">Precio</label>
+                <label for="pais">Pais</label>
                 <br>
-                <input type="number" name="precio" value="{{ $empleado->precio }}">
+                <input type="text" name="pais" value="{{ $empleado->pais }}">
+                <br>
+                <label for="provincia">Provincia</label>
+                <br>
+                <input type="text" name="provincia" value="{{ $empleado->provincia }}">
+                <br><label for="ciudad">Ciudad</label>
+                <br>
+                <input type="text" name="ciudad" value="{{ $empleado->ciudad }}">
+                <br>
+                <label for="cp">Código Postal</label>
+                <br>
+                <input type="text" name="cp" value="{{ $empleado->cp }}">
+                <br>
+                <label for="calle">Calle</label>
+                <br>
+                <input type="text" name="calle" value="{{ $empleado->calle }}">
+                <br>
+                <label for="puesto">Puesto</label>
+                <br>
+                <input type="text" name="puesto" value="{{ $empleado->puesto }}">
                 <br>
                 <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
             </form>

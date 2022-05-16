@@ -11,7 +11,7 @@
 /* `agencia_alquiler1`.`alquiler` */
 $alquileres = array(
   array('id_Alquiler' => '1','id_Cliente' => '1','id_Coche' => '1','precio_total' => '117.36','fecha_contrato' => '2022-04-02 11:00:00','fecha_inicio' => '2022-04-03 10:00:00','fecha_fin' => '2022-04-06 19:30:00','observacion' => '','estado' => 'preparado'),
-  array('id_Alquiler' => '2','id_Cliente' => '15','id_Coche' => '21','precio_total' => '40.1','fecha_contrato' => '2022-04-03 13:55:38','fecha_inicio' => '2022-04-05 09:01:38','fecha_fin' => '2022-04-05 21:36:32','observacion' => '','estado' => 'preparando')
+  array('id_Alquiler' => '2','id_Cliente' => '15','id_Coche' => '3','precio_total' => '40.1','fecha_contrato' => '2022-04-03 13:55:38','fecha_inicio' => '2022-04-05 09:01:38','fecha_fin' => '2022-04-05 21:36:32','observacion' => '','estado' => 'preparando')
 );
 
 /* `agencia_alquiler1`.`cliente` */
@@ -47,10 +47,10 @@ $clientes = array(
 $coches = array(
   array('id_Coche' => '1','bastidor' => 'WAUAC68D01A148342','marca' => 'Hyundai','modelo' => 'Sonata','color' => 'Rojo','matricula' => '5292cfl','imagen' => '/storage/Hyundai Sonata.jpg','estado' => 'A punto','precio' => '39.12'),
   array('id_Coche' => '2','bastidor' => '5LMJJ3H56CE047276','marca' => 'Kia','modelo' => 'Sedona','color' => 'Negro','matricula' => '6109ssx','imagen' => '/storage/Kia Sedona.webp','estado' => 'A punto','precio' => '17.94'),
-  array('id_Coche' => '9','bastidor' => 'WAUBG78E46A853904','marca' => 'Honda','modelo' => 'Odyssey','color' => 'Blanco','matricula' => '8904bdn','imagen' => '/storage/Honda Odyssey.webp','estado' => 'A punto','precio' => '43.03'),
-  array('id_Coche' => '11','bastidor' => '1C3CDFEB0ED069709','marca' => 'Mitsubishi','modelo' => 'Lancer Evolution','color' => 'Blanco','matricula' => '6412ill','imagen' => '/storage/Mitsubishi Lancer Evolution.jpg','estado' => 'A punto','precio' => '49.17'),
-  array('id_Coche' => '12','bastidor' => 'JTHBC1KS0B5571870','marca' => 'Hyundai','modelo' => 'Tucson','color' => 'Blanco','matricula' => '3645pqm','imagen' => '/storage/Hyundai Tucson.jpg','estado' => 'A punto','precio' => '35.32'),
-  array('id_Coche' => '15','bastidor' => 'WBAEK13527C272407','marca' => 'BMW','modelo' => 'M5','color' => 'Azul','matricula' => '2284evx','imagen' => '/storage/BMW M5.webp','estado' => 'A punto','precio' => '40.92'),
+  array('id_Coche' => '3','bastidor' => 'WAUBG78E46A853904','marca' => 'Honda','modelo' => 'Odyssey','color' => 'Blanco','matricula' => '8904bdn','imagen' => '/storage/Honda Odyssey.webp','estado' => 'A punto','precio' => '43.03'),
+  array('id_Coche' => '4','bastidor' => '1C3CDFEB0ED069709','marca' => 'Mitsubishi','modelo' => 'Lancer Evolution','color' => 'Blanco','matricula' => '6412ill','imagen' => '/storage/Mitsubishi Lancer Evolution.jpg','estado' => 'A punto','precio' => '49.17'),
+  array('id_Coche' => '5','bastidor' => 'JTHBC1KS0B5571870','marca' => 'Hyundai','modelo' => 'Tucson','color' => 'Blanco','matricula' => '3645pqm','imagen' => '/storage/Hyundai Tucson.jpg','estado' => 'A punto','precio' => '35.32'),
+  array('id_Coche' => '6','bastidor' => 'WBAEK13527C272407','marca' => 'BMW','modelo' => 'M5','color' => 'Azul','matricula' => '2284evx','imagen' => '/storage/BMW M5.webp','estado' => 'A punto','precio' => '40.92'),
 );
 
 /* `agencia_alquiler1`.`empleado` */
