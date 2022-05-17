@@ -21,9 +21,7 @@ use App\Http\Controllers\EmpleadoController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('cliente.principal');
-});
+Route::get('/', [ClienteController::class, 'portada']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

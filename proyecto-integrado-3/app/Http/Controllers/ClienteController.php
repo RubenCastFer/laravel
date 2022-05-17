@@ -13,6 +13,10 @@ class ClienteController extends Controller
 {
 
 
+    public function portada(){
+        $coches=Coches::all();
+        return view('cliente.principal',['coches'=>$coches]);
+    }
 
     public function dashboard()
     {

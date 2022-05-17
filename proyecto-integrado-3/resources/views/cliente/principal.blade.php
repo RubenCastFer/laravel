@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  <h2 style="margin:auto">hola</h2>
 
   <div class="container">
     <form action="/cliente/coche" method="post">
@@ -43,7 +42,7 @@
   </div>
 
 
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide col-6 d-block mx-auto" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -53,35 +52,35 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="5000">
-        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="/storage/{{ $coches[0]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
           <h5>Titulo</h5>
           <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="/storage/{{ $coches[5]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
           <h5>Titulo</h5>
           <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="/storage/{{ $coches[2]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
           <h5>Titulo</h5>
           <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="/storage/{{ $coches[3]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
           <h5>Titulo</h5>
           <p>Texto</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="image/.jpg" class="d-block w-100" alt="..." height="500px">
+        <img src="/storage/{{ $coches[4]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
           <h5>Titulo</h5>
           <p>Texto</p>
@@ -99,7 +98,15 @@
     </button>
   </div>
   </div>
-
+  <!-- @for ($i = 0; $i < 5; $i++) 
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="/storage/{{ $coches[$i]->imagen }}" class="d-block w-100" alt="..." height="500px">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{$coches[$i]->marca}} {{$coches[$i]->modelo}}</h5>
+          <p>Texto</p>
+        </div>
+      </div>
+      @endfor -->
 </body>
 
 </html>
