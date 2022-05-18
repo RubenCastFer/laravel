@@ -27,7 +27,7 @@ class EmpleadoAuth extends Authenticatable
     static public function findEmpleado($id_Empleado){
         return DB::table('empleado')->select('id_Empleado', 'name', 'apellidos', 'email', 'dni', 'telefono', 'pais', 'provincia', 'ciudad', 'cp', 'calle','puesto')->where('id_Empleado', $id_Empleado)->get();
     }
-
+    
     static public function passwordDNI($email)
     {
         return DB::table('empleado')->select('password','dni')->where('email', $email)->get();

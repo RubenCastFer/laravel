@@ -13,7 +13,7 @@
 
 <body>
 
-  <div class="container">
+  <div class="container mt-3 mb-3">
     <form action="/cliente/coche" method="post">
       @csrf
       <!-- @method('PUT') -->
@@ -54,36 +54,36 @@
       <div class="carousel-item active" data-bs-interval="5000">
         <img src="/storage/{{ $coches[0]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Titulo</h5>
-          <p>Texto</p>
+          <h5>{{$coches[0]->marca}} {{$coches[0]->modelo}}</h5>
+          <p>Desde {{$coches[0]->precio}}€ por día</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <img src="/storage/{{ $coches[5]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Titulo</h5>
-          <p>Texto</p>
+          <h5>{{$coches[5]->marca}} {{$coches[5]->modelo}}</h5>
+          <p>Desde {{$coches[5]->precio}}€ por día</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <img src="/storage/{{ $coches[2]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Titulo</h5>
-          <p>Texto</p>
+          <h5>{{$coches[2]->marca}} {{$coches[2]->modelo}}</h5>
+          <p>Desde {{$coches[2]->precio}}€ por día</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <img src="/storage/{{ $coches[3]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Titulo</h5>
-          <p>Texto</p>
+          <h5>{{$coches[3]->marca}} {{$coches[3]->modelo}}</h5>
+          <p>Desde {{$coches[3]->precio}}€ por día</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <img src="/storage/{{ $coches[4]->imagen }}" class="d-block w-100" alt="..." height="500px">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Titulo</h5>
-          <p>Texto</p>
+          <h5>{{$coches[4]->marca}} {{$coches[4]->modelo}}</h5>
+          <p>Desde {{$coches[4]->precio}}€ por día</p>
         </div>
       </div>
     </div>
