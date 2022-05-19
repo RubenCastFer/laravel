@@ -7,7 +7,10 @@
 <head>
     <title>Register Cliente</title>
     <link href="{!! asset('css/register.css') !!}" rel="stylesheet" type="text/css">
-    <!-- {{ asset('css/app.css') }} -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script type="text/javascript" src="{!! asset('js/register.js') !!}"></script>
 </head>
 
 <body>
@@ -20,7 +23,7 @@
             @if(\Session::has('error'))
             <div class="alert alert-danger">{{ \Session::get('error') }}</div>
             @endif
-            <form method="post" action="/cliente/register">
+            <form id="registroCliente" method="post" action="/cliente/register">
                 @csrf
                 @method('PUT')
                 <div class="form-floating row g-2">
