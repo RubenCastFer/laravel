@@ -8,6 +8,12 @@
     <meta charset="UTF-8">
     <title>Cliente Presupuesto</title>
     <link href="{!! asset('css/presupuesto.css') !!}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script type="text/javascript" src="{!! asset('js/tarjeta.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/login.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/register.js') !!}"></script>
 
 </head>
 <body>
@@ -48,7 +54,7 @@
                     <div class="col-12 ">
                         <div class="border border-dark rounded-3 m-4">
                             <h1 class="ms-3 mt-3">Importe: {{$datos['precioTotal']}}</h1>
-                            <form method="post" action="/cliente/pago">
+                            <form id="paga" method="post" action="/cliente/pago">
                                 @csrf
                                 <div class="row form-floating g-2 ms-3">
                                     <h5 class="ps-4">Datos de la tarjeta</h5>
@@ -100,7 +106,7 @@
                                 <!-- @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 @endif -->
-                                <form method="post" action="/cliente/login">
+                                <form id="loginCliente" method="post" action="/cliente/login">
                                     @csrf
                                     <div class="form-floating">
                                         <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
@@ -126,7 +132,7 @@
                                 <!-- @if(\Session::has('error'))
                                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
                                 @endif -->
-                                <form method="post" action="/cliente/register">
+                                <form id="registroCliente" method="post" action="/cliente/register">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-floating row g-2">

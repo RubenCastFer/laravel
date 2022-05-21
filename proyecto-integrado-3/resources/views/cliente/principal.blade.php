@@ -8,13 +8,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{!! asset('css/principal.css') !!}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script type="text/javascript" src="{!! asset('js/principal.js') !!}"></script>
   <title>Principal</title>
 </head>
 
 <body>
 
   <div class="container mt-3 mb-3">
-    <form action="/cliente/coche" method="post">
+    <form id="fechas" action="/cliente/coche" method="post">
       @csrf
       <!-- @method('PUT') -->
       <div class="row">
@@ -26,11 +31,11 @@
           <label for="sucursal">Oficina de recogida</label>
         </div>
         <div class="col-3 form-floating">
-          <input type="datetime-local" class="form-control text-center" id="recogida" name="recogida" value="" min="" require>
+          <input type="datetime-local" class="form-control text-center" id="recogida" name="recogida" value="" min="" required>
           <label for="recogida">Recogida</label>
         </div>
         <div class="col-3 form-floating">
-          <input type="datetime-local" class="form-control text-center" id="devolucion" name="devolucion" value="" min="" require>
+          <input type="datetime-local" class="form-control text-center" id="devolucion" name="devolucion" value="" min="" required>
           <label for="devolucion">Devolución</label>
         </div>
         <div class="col-2 form-floating d-flex align-items-center ">
