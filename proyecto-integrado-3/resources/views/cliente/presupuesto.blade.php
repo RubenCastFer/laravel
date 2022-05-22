@@ -49,6 +49,9 @@
                         </div>
                     </div>
 
+                    @if (session()->get('tipo')=='empleado')
+                    <h1 class="text-center m-5">Cierre sesión como empleado</h1>
+                    @endif
                     <!--esta registrado -->
                     @if (session()->get('tipo')=='cliente')
                     <div class="col-12 ">
