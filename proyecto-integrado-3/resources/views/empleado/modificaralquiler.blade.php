@@ -43,7 +43,7 @@
             </tr>
         </table>
         <div>
-            <form method="post" action="/empleado/modificaralquiler/{{ $alquiler->id_Alquiler }}">
+            <form id="modificarAlquiler" method="post" action="/empleado/modificaralquiler/{{ $alquiler->id_Alquiler }}">
                 @method('PUT')
                 @csrf
                 <label for="observacion">Observacion:</label>
@@ -53,7 +53,7 @@
                 <label for="estado">Estado:</label>
                 <br>
                 <select name="estado" id="estado">
-                    <option value="" selected></option>
+                    <option value="" selected>Seleccione...</option>
                     <option value="Preparación">Preparación</option>
                     <option value="En curso">En curso</option>
                     <option value="Finalizado">Finalizado</option>

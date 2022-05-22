@@ -1,0 +1,14 @@
+label.error {
+    color: red;
+    font-size: 20px;
+    display: block;
+    margin-top: 5px;
+    position: relative;
+    left: 20px;
+}
+
+input.error, textarea.error {
+    border: 3px solid red;
+    font-weight: 300;
+    color: red;
+}

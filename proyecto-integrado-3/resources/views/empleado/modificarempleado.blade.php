@@ -6,6 +6,11 @@
 
 <head>
     <title>Empleado</title>
+    <link href="{!! asset('css/modificarEmpleado.css') !!}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    <script type="text/javascript" src="{!! asset('js/registerEmple.js') !!}"></script>
 </head>
 
 <body>
@@ -19,106 +24,116 @@
             </div>
         </div>
         @if($empleado==null)
-        <div>
-            <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
+        <div class="col-7 mx-auto">
+            <form id="registroEmple1" method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <label for="name">Nombre</label>
-                <br>
-                <input type="text" name="name">
-                <br>
-                <label for="apellidos">Apellidos</label>
-                <br>
-                <input type="text" name="apellidos">
-                <br>
-                <label for="email">Correo</label>
-                <br>
-                <input type="email" name="email">
-                <br>
-                <label for="dni">DNI</label>
-                <br>
-                <input type="text" name="dni">
-                <br>
-                <label for="telefono">Telefono</label>
-                <br>
-                <input type="number" name="telefono">
-                <br>
-                <label for="pais">Pais</label>
-                <br>
-                <input type="text" name="pais">
-                <br>
-                <label for="provincia">Provincia</label>
-                <br>
-                <input type="text" name="provincia">
-                <br><label for="ciudad">Ciudad</label>
-                <br>
-                <input type="text" name="ciudad">
-                <br>
-                <label for="cp">Código Postal</label>
-                <br>
-                <input type="text" name="cp">
-                <br>
-                <label for="calle">Calle</label>
-                <br>
-                <input type="text" name="calle">
-                <br>
-                <label for="puesto">Puesto</label>
-                <br>
-                <input type="text" name="puesto">
-                <br>
+                <div class="form-floating row g-2">
+                    <div class="form-floating mt-2 col-4 ">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
+                        <label for="name" class="me-3">Nombre</label>
+                    </div>
+                    <div class="form-floating mt-2 col-8">
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" required>
+                        <label for="apellidos">Apellidos</label>
+                    </div>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                    <label for="email">Correo</label>
+                </div>
+                <div class="form-floating row g-2">
+                    <div class="form-floating col-6 mt-3">
+                        <input type="text" class="form-control" id="dni" name="dni" placeholder="dni">
+                        <label for="dni">DNI</label>
+                    </div>
+                    <div class="form-floating col-6 mt-3">
+                        <input type="number" class="form-control" id="telefono" name="telefono" placeholder="telefono">
+                        <label for="telefono">Telefono</label>
+                    </div>
+
+                    <div class="form-floating col-4 mt-2">
+                        <input type="text" class="form-control" id="pais" name="pais" placeholder="pais">
+                        <label for="pais">Pais</label>
+                    </div>
+                    <div class="form-floating col-8 mt-2 ">
+                        <input type="text" class="form-control" id="provincia" name="provincia" placeholder="provincia">
+                        <label for="provincia">Provincia</label>
+                    </div>
+                    <div class="form-floating col-7 mt-2">
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="ciudad">
+                        <label for="ciudad">Ciudad</label>
+                    </div>
+                    <div class="form-floating col-5 mt-2">
+                        <input type="number" class="form-control" id="cp" name="cp" placeholder="cp">
+                        <label for="cp">Código Postal</label>
+                    </div>
+                    <div class="form-floating col-6 mt-2">
+                        <input type="text" class="form-control" id="calle" name="calle" placeholder="calle">
+                        <label for="calle">Dirección</label>
+                    </div>
+                    <div class="form-floating col-6 mt-2">
+                        <input type="text" class="form-control" id="puesto" name="puesto" placeholder="puesto">
+                        <label for="puesto">Puesto</label>
+                    </div>
+                </div>
                 <input type="submit" class="btn btn-primary mt-2" value="Agregar empleado">
             </form>
         </div>
         @else
-        <div>
-            <form method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
+        <div class="col-7 mx-auto">
+            <form id="registroEmple2" method="post" action="/empleado/modificarempleado" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <input type="hidden" name="id_Empleado" value="{{ $empleado->id_Empleado }}">
-                <br>
-                <label for="name">Nombre</label>
-                <br>
-                <input type="text" name="name" value="{{ $empleado->name }}">
-                <br>
-                <label for="apellidos">Apellidos</label>
-                <br>
-                <input type="text" name="apellidos" value="{{ $empleado->apellidos }}">
-                <br>
-                <label for="email">Correo</label>
-                <br>
-                <input type="email" name="email" value="{{ $empleado->email }}">
-                <br>
-                <label for="dni">DNI</label>
-                <br>
-                <input type="text" name="dni" value="{{ $empleado->dni }}">
-                <br>
-                <label for="telefono">Telefono</label>
-                <br>
-                <input type="number" name="telefono" value="{{ $empleado->telefono }}">
-                <br>
-                <label for="pais">Pais</label>
-                <br>
-                <input type="text" name="pais" value="{{ $empleado->pais }}">
-                <br>
-                <label for="provincia">Provincia</label>
-                <br>
-                <input type="text" name="provincia" value="{{ $empleado->provincia }}">
-                <br><label for="ciudad">Ciudad</label>
-                <br>
-                <input type="text" name="ciudad" value="{{ $empleado->ciudad }}">
-                <br>
-                <label for="cp">Código Postal</label>
-                <br>
-                <input type="text" name="cp" value="{{ $empleado->cp }}">
-                <br>
-                <label for="calle">Calle</label>
-                <br>
-                <input type="text" name="calle" value="{{ $empleado->calle }}">
-                <br>
-                <label for="puesto">Puesto</label>
-                <br>
-                <input type="text" name="puesto" value="{{ $empleado->puesto }}">
-                <br>
+                <div class="form-floating row g-2">
+                    <div class="form-floating mt-2 col-4 ">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name" value="{{ $empleado->name }}" required>
+                        <label for="name" class="me-3">Nombre</label>
+                    </div>
+                    <div class="form-floating mt-2 col-8">
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" value="{{ $empleado->apellidos }}" required>
+                        <label for="apellidos">Apellidos</label>
+                    </div>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{{ $empleado->email }}" required>
+                    <label for="email">Correo</label>
+                <div class="form-floating row g-2">
+                    <div class="form-floating col-6 mt-3">
+                        <input type="text" class="form-control" id="dni" name="dni" placeholder="dni" value="{{ $empleado->dni }}">
+                        <label for="dni">DNI</label>
+                    </div>
+                    <div class="form-floating col-6 mt-3">
+                        <input type="number" class="form-control" id="telefono" name="telefono" placeholder="telefono" value="{{ $empleado->telefono }}">
+                        <label for="telefono">Telefono</label>
+                    </div>
+
+                    <div class="form-floating col-4 mt-2">
+                        <input type="text" class="form-control" id="pais" name="pais" placeholder="pais" value="{{ $empleado->pais }}">
+                        <label for="pais">Pais</label>
+                    </div>
+                    <div class="form-floating col-8 mt-2 ">
+                        <input type="text" class="form-control" id="provincia" name="provincia" placeholder="provincia" value="{{ $empleado->provincia }}">
+                        <label for="provincia">Provincia</label>
+                    </div>
+                    <div class="form-floating col-7 mt-2">
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="ciudad" value="{{ $empleado->ciudad }}">
+                        <label for="ciudad">Ciudad</label>
+                    </div>
+                    <div class="form-floating col-5 mt-2">
+                        <input type="number" class="form-control" id="cp" name="cp" placeholder="cp" value="{{ $empleado->cp }}">
+                        <label for="cp">Código Postal</label>
+                    </div>
+                    <div class="form-floating col-6 mt-2">
+                        <input type="text" class="form-control" id="calle" name="calle" placeholder="calle" value="{{ $empleado->calle }}">
+                        <label for="calle">Dirección</label>
+                    </div>
+                    <div class="form-floating col-6 mt-2">
+                        <input type="text" class="form-control" id="puesto" name="puesto" placeholder="puesto" value="{{ $empleado->puesto }}">
+                        <label for="puesto">Puesto</label>
+                    </div>
+                </div>
                 <input type="submit" class="btn btn-primary mt-2" value="Realizar Cambio">
             </form>
         </div>

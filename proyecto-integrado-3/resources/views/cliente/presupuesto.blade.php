@@ -53,7 +53,7 @@
                     @if (session()->get('tipo')=='cliente')
                     <div class="col-12 ">
                         <div class="border border-dark rounded-3 m-4">
-                            <h1 class="ms-3 mt-3">Importe: {{$datos['precioTotal']}}</h1>
+                            <h1 class="ms-3 mt-3">Importe: {{$datos['precioTotal']}}€</h1>
                             <form id="paga" method="post" action="/cliente/pago">
                                 @csrf
                                 <div class="row form-floating g-2 ms-3">
