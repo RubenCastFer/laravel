@@ -32,6 +32,10 @@
 
             @if (session()->get('tipo')=='cliente')
             <li class="nav-item">
+              <a class="nav-link text-white" href="/cliente/dashboard">Menú</a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link text-white" href="/cliente/logout">Salir</a>
             </li>
             @endif

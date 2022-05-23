@@ -27,7 +27,8 @@
             @foreach ($alquileres as $alquiler)
             @if($alquiler->estado_alquiler=='En curso')
             <div class="card m-2" style="width: 18rem;">
-                <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="...">
+                <!-- <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="..."> -->
+                <img src="/storage/{{ $alquiler->imagen }}" class="img-fluid" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">{{$alquiler->marca}} {{$alquiler->modelo}}</h5>
                     <p class="card-text">
@@ -56,7 +57,8 @@
             @foreach ($alquileres as $alquiler)
             @if($alquiler->estado_alquiler=='Preparación')
             <div class="card m-2" style="width: 18rem;">
-                <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="...">
+                <!-- <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="..."> -->
+                <img src="/storage/{{ $alquiler->imagen }}" class="img-fluid" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">{{$alquiler->marca}} {{$alquiler->modelo}}</h5>
                     <p class="card-text">
@@ -85,7 +87,8 @@
             @foreach ($alquileres as $alquiler)
             @if($alquiler->estado_alquiler=='Finalizado')
             <div class="card m-2" style="width: 18rem;">
-                <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="...">
+                <!-- <img src="{!! asset('img/cocheLogin.jpg') !!}" class="card-img-top" alt="..."> -->
+                <img src="/storage/{{ $alquiler->imagen }}" class="img-fluid" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">{{$alquiler->marca}} {{$alquiler->modelo}}</h5>
                     <p class="card-text">

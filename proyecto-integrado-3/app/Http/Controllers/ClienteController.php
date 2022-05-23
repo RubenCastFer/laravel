@@ -87,6 +87,7 @@ class ClienteController extends Controller
                     'observacion'=>'',
                     'estado'=>'Preparación']);
         $alquiler->save();
+        session()->forget('datosPresupuesto');
         return redirect()->action([ClienteController::class, 'dashboard']);
     }
 }
