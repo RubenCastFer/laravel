@@ -39,8 +39,11 @@ Route::get('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
 
 Route::post('/cliente/presupuesto', [ClienteController::class, 'presupuesto']);
 
-Route::post('/cliente/pago', [ClienteController::class, 'guardarAlquiler']);
+Route::post('/cliente/pago', [ClienteController::class, 'guardarAlquiler'])->middleware(['cliente']);
 
+Route::get('/cliente/eliminaralquiler/{idAlquiler}', [ClienteController::class, 'destroyAlquiler'])->middleware(['cliente']);
+
+Route::get('/cliente/perfil', [ClienteController::class, 'vistaPerfil'])->middleware(['cliente']);
 
 // Route::get('/empleado/login', [EmpleadoAuthController::class, 'showLoginForm'])->name('empleado.login');
 // Route::post('/empleado/login', [EmpleadoAuthController::class, 'login'])->name('empleado.login');
@@ -72,6 +75,10 @@ Route::get('/empleado/tablaalquiler', [EmpleadoController::class, 'tablaAlquiler
 Route::get('/empleado/modificaralquiler/{id}', [EmpleadoController::class, 'editAlquiler'])->middleware(['empleado']);
 
 Route::put('/empleado/modificaralquiler/{id}',  [EmpleadoController::class, 'updateAlquiler'])->middleware(['empleado']);
+
+Route::get('/empleado/eliminaralquiler/{idAlquiler}', [EmpleadoController::class, 'destroyAlquiler'])->middleware(['empleado']);
+
+Route::get('/empleado/perfil', [EmpleadoController::class, 'vistaPerfil'])->middleware(['empleado']);
 
 require __DIR__.'/auth.php';
 

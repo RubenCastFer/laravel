@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <p>La recepción de su petición se ha realizado</p>
-    <p>{{ $datos["nombre"] }}</p>
-    <p>{{ $datos["mail"] }}</p>
-    <p>{{ $datos["titulo"] }}</p>
-    <!-- <h1>This is test mail from Tutsmake.com</h1>
- <p>Laravel 8 send email example</p> -->
+
+    <h3>Bienvenido</h3>
+    <p>Empleado: {{$datos->name}} {{$datos->apellidos}}</p>
+    <p>Acceso</p>
+    <p>Email: {{$datos->email}}</p>
+    <p>Contraseña temporal: {{$datos->dni}}</p>
 
 </body>
 

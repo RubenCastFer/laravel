@@ -74,7 +74,7 @@ class ClienteAuthController extends Controller
             if (!empty(session('datosPresupuesto'))) {
                 return redirect()->action([ClienteController::class, 'presupuesto']);
             }
-            return redirect()->intended('/cliente/dashboard');
+            return redirect()->intended('/');
         }
  
         return redirect()->back()->withError('Email o Contraseña incorrectas');
@@ -135,5 +135,31 @@ class ClienteAuthController extends Controller
         }
         
         return redirect()->back()->withError('Email o Contraseña incorrectas');
+    }
+
+    public function cambiarContrasenya(Request $request)
+    {
+        if ($request->input('password') == $request->input('passwordconfirm')) {
+            $password = ClienteAuth::password(session('usuario')[0]->email);
+            if (password_verify($request->input('passwordactual'), $password[0]->password)) {
+                $cliente = ClienteAuth::find(session('usuario')[0]->id_Cliente);
+                $cliente['password'] = Hash::make($request->input('password'));
+                $cliente->save();
+                return redirect()->back()->with('success','Contraseña cambiada con éxito');
+            } else {
+                return redirect()->back()->withError('Contraseña errónea');
+            }
+        } else {
+            return redirect()->back()->withError('Por favor, introduzca un par de contraseñas validas');
+        }
+    }
+
+    public function cambioUsuario(Request $request){
+        $cliente = ClienteAuth::find(session('usuario')[0]->id_Cliente);
+        $cliente->fill($request->all());
+        $cliente->save();
+        $cliente = ClienteAuth::cliente($cliente->email);
+        session()->put('usuario', $cliente);
+        return redirect()->intended('/cliente/perfil');
     }
 }

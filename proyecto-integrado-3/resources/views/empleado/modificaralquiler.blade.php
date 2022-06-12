@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col-12 col-lg-6 offset-3">
                 <h1 class="text-center m-5">Alquiler</h1>
                 @if(\Session::has('error'))
                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>

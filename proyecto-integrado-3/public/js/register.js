@@ -28,7 +28,8 @@ $(document).ready(function(){
           passwordConfirm : {
             required: true,
             minlength: 8,
-            maxlength: 14
+            maxlength: 14,
+            equalTo : "#password"
           },
           dni : {
             required: true,
@@ -88,7 +89,8 @@ $(document).ready(function(){
           passwordConfirm: {
             required: "Campo requerido",
             minlength: "Debe contener un mínimo de 8 caracteres",
-            maxlength: "Debe contener un máximo de 14 caracteres"
+            maxlength: "Debe contener un máximo de 14 caracteres",
+            equalTo: "Las contraseñas no coinciden"
           },
           telefono: {
             required: "Campo requerido",
@@ -110,7 +112,7 @@ $(document).ready(function(){
             minlength: "Debe contener un mínimo de 3 letras",
             maxlength: "Debe contener un máximo de 30 letras"
           },
-          telefono: {
+          cp: {
             required: "Campo requerido",
             minlength: "Debe contener un número de 5 dígitos",
             maxlength: "Debe contener un número de 5 dígitos"

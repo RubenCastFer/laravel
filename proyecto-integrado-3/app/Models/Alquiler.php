@@ -25,4 +25,26 @@ class Alquiler extends Model
                             WHERE alquiler.id_Cliente=:id_Cliente',
                             ['id_Cliente'=>$id_Cliente]);
     }
+
+    static public function alquileresAll(){
+        return DB::select('SELECT id_Alquiler, alquiler.id_Cliente, alquiler.id_Coche, precio_total, fecha_contrato, fecha_inicio, fecha_fin, observacion, alquiler.estado, cliente.name, cliente.apellidos, coche.marca, coche.modelo 
+                            FROM alquiler 
+                            INNER JOIN coche 
+                            ON alquiler.id_Coche=coche.id_Coche 
+                            INNER JOIN cliente 
+                            ON alquiler.id_Cliente=cliente.id_Cliente;
+        ');
+    }
+
+    static public function alquileresFind($id_Alquiler){
+        return DB::select('SELECT id_Alquiler, alquiler.id_Cliente, alquiler.id_Coche, precio_total, fecha_contrato, fecha_inicio, fecha_fin, observacion, alquiler.estado, cliente.name, cliente.apellidos, cliente.email, coche.marca, coche.modelo 
+                            FROM alquiler 
+                            INNER JOIN coche 
+                            ON alquiler.id_Coche=coche.id_Coche 
+                            INNER JOIN cliente 
+                            ON alquiler.id_Cliente=cliente.id_Cliente
+                            WHERE alquiler.id_Alquiler=:id_Alquiler',
+                            ['id_Alquiler'=>$id_Alquiler]);
+    }
+    // SELECT `id_Alquiler`, alquiler.id_Cliente, alquiler.id_Coche, `precio_total`, `fecha_contrato`, `fecha_inicio`, `fecha_fin`, `observacion`, alquiler.estado, cliente.name, cliente.apellidos, coche.marca, coche.modelo FROM `alquiler` INNER JOIN coche ON alquiler.id_Coche=coche.id_Coche INNER JOIN cliente ON alquiler.id_Cliente=cliente.id_Cliente;
 }

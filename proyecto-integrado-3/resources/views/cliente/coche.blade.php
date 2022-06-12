@@ -17,12 +17,12 @@
             @endif
             @foreach ($cochesLibres as $coche)
             <div class="row mt-3">
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <!-- <img src="{!! asset('storage{{ $coche->imagen }}') !!}" class="img-fluid" alt="..."> -->
                     <img src="/storage/{{ $coche->imagen }}" class="img-fluid" alt="image">
                     
                 </div>
-                <div class="col-6 d-flex align-items-center">
+                <div class="col-12 col-lg-6 d-flex align-items-center">
                     <div class="card " style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{$coche->marca}} {{$coche->modelo}}</h5>

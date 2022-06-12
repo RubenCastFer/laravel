@@ -20,6 +20,10 @@ Route::get('/cliente/register', [ClienteAuthController::class, 'showRegisterForm
 
 Route::put('/cliente/register', [ClienteAuthController::class, 'register']);
 
+Route::put('/cliente/cambiopassword',  [ClienteAuthController::class, 'cambiarContrasenya'])->middleware(['cliente']);
+
+Route::put('/cliente/cambio',  [ClienteAuthController::class, 'cambioUsuario'])->middleware(['cliente']);
+
 
 
 Route::get('/empleado/login', [EmpleadoAuthController::class, 'showLoginForm'])->name('empleado.login');
@@ -32,6 +36,7 @@ Route::get('/empleado/cambiopassword', [EmpleadoAuthController::class, 'showcamb
 
 Route::put('/empleado/cambiopassword',  [EmpleadoAuthController::class, 'cambiarContrasenya'])->middleware(['empleado']);
 
+Route::put('/empleado/cambio',  [EmpleadoAuthController::class, 'cambioUsuario'])->middleware(['empleado']);
 
 
 // Route::middleware('guest')->group(function () {

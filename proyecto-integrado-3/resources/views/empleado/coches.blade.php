@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col-12 col-lg-6 offset-3">
                 <h1 class="text-center m-5">Coches</h1>
                 @if(\Session::has('error'))
                 <div class="alert alert-danger">{{ \Session::get('error') }}</div>
@@ -19,7 +19,7 @@
 
 
             </div>
-            <div class="col-3 position-relative">
+            <div class="col-12 col-lg-3 position-relative">
                 <a class="btn btn-success position-absolute bottom-0 end-0" href="/empleado/modificarcoche/null">Añadir nuevo coche</a>
             </div>
             <table class="table" style="margin:auto">

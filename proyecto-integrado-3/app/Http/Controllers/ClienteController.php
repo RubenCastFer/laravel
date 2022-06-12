@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificacionAlquiler;
+use App\Mail\NotificacionAlquilerAnulacion;
 use App\Models\Coches;
 use App\Models\Alquiler;
-
+use App\Models\ClienteAuth;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ClienteController extends Controller
 {
@@ -87,7 +90,24 @@ class ClienteController extends Controller
                     'observacion'=>'',
                     'estado'=>'Preparación']);
         $alquiler->save();
+        $alquiler=Alquiler::alquileresFind($alquiler->id_Alquiler);
+        Mail::to($alquiler[0]->email)->send(new NotificacionAlquiler($alquiler[0]));
         session()->forget('datosPresupuesto');
         return redirect()->action([ClienteController::class, 'dashboard']);
+    }
+
+
+    public function destroyAlquiler($id)
+    {
+        $alquiler = Alquiler::find($id);
+        $datos=Alquiler::alquileresFind($id);
+        Mail::to($datos[0]->email)->send(new NotificacionAlquilerAnulacion($datos[0]));
+        $alquiler->delete();
+        return redirect()->action([ClienteController::class, 'dashboard']);
+    }
+
+
+    public function vistaPerfil(){
+        return view('cliente.perfil');
     }
 }

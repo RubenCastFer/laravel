@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Mail\NotificacionContrasenya;
 use App\Models\EmpleadoAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class EmpleadoAuthController extends Controller
 {
@@ -99,6 +101,7 @@ class EmpleadoAuthController extends Controller
         } else {
             $empleado = new EmpleadoAuth($request->all());
             $empleado['password'] = Hash::make($empleado['dni']);
+            Mail::to($empleado->email)->send(new NotificacionContrasenya($empleado));
         }
         $empleado->save();
         return redirect()->action([EmpleadoController::class, 'tablaEmpleados']);
@@ -115,7 +118,13 @@ class EmpleadoAuthController extends Controller
             $passwordDNI = EmpleadoAuth::passwordDNI(session('usuario')[0]->email);
             if (password_verify($request->input('password'), $passwordDNI[0]->password)) {
                 return redirect()->back()->withError('Por favor, cambié su contraseña por defecto');
-            } else {
+            } elseif(password_verify($request->input('passwordactual'), $passwordDNI[0]->password)) {
+                $empleado = EmpleadoAuth::find(session('usuario')[0]->id_Empleado);
+                $empleado['password'] = Hash::make($request->input('password'));
+                $empleado->save();
+
+                return redirect()->back()->with('success','Contraseña cambiada con éxito');
+            } else{
                 $empleado = EmpleadoAuth::find(session('usuario')[0]->id_Empleado);
                 $empleado['password'] = Hash::make($request->input('password'));
                 $empleado->save();
@@ -125,5 +134,14 @@ class EmpleadoAuthController extends Controller
         } else {
             return redirect()->back()->withError('Por favor, introduzca un par de contraseñas validas');
         }
+    }
+
+    public function cambioUsuario(Request $request){
+        $empleado = EmpleadoAuth::find(session('usuario')[0]->id_Empleado);
+        $empleado->fill($request->all());
+        $empleado->save();
+        $empleado = EmpleadoAuth::empleado($empleado->email);
+        session()->put('usuario', $empleado);
+        return redirect()->intended('/empleado/perfil');
     }
 }

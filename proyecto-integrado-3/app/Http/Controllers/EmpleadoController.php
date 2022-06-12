@@ -103,7 +103,7 @@ class EmpleadoController extends Controller
 
     public function tablaAlquileres()
     {
-        $alquileres = Alquiler::all();
+        $alquileres = Alquiler::alquileresAll();
         return view('empleado.alquileres', ['alquileres' => $alquileres]);
     }
 
@@ -127,5 +127,16 @@ class EmpleadoController extends Controller
         $alquiler->fill(['observacion' => $observacion, 'estado' => $estado]);
         $alquiler->save();
         return redirect()->action([EmpleadoController::class, 'tablaAlquileres']);
+    }
+
+    public function destroyAlquiler($id)
+    {
+        $alquiler = Alquiler::find($id);
+        $alquiler->delete();
+        return redirect()->action([EmpleadoController::class, 'tablaAlquileres']);
+    }
+
+    public function vistaPerfil(){
+        return view('empleado.perfil');
     }
 }
