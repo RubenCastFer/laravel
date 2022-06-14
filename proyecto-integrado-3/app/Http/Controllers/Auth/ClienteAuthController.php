@@ -11,12 +11,19 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * ClienteAuthController
+ * 
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class ClienteAuthController extends Controller
 {
 
     
     /**
-     * Display admin login view
+     * Muestra el login
      *
      * @return \Illuminate\View\View
      */
@@ -34,31 +41,13 @@ class ClienteAuthController extends Controller
 
 
     /**
-     * Handle an incoming admin authentication request.
+     * Comprueba el inicio de sesión
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function login(Request $request)
     {
-        // $this->validate($request, [
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-        // $remember=true;
-        // if(auth()->guard('cliente')->attempt([
-        //     'email' => $request->email,
-        //     'password' => $request->password, $remember
-        // ])) {
-            
-        //     $request->session()->regenerate();
-        //     $request->session()->put('tipo', 'cliente');
-        //     return redirect()->intended(url('/cliente/dashboard'));
-        // } else {
-        //     return redirect()->back()->withError('Credentials doesn\'t match.');
-        // }
-
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -81,7 +70,7 @@ class ClienteAuthController extends Controller
     }
 
     /**
-     * Destroy an authenticated session.
+     * Destruye la sesión
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -98,7 +87,12 @@ class ClienteAuthController extends Controller
     }
 
 
-    
+        
+    /**
+     * Muestra el formulario de registro
+     *
+     * @return void
+     */
     public function showRegisterForm()
     {
         
@@ -109,7 +103,13 @@ class ClienteAuthController extends Controller
             return view('auth.clienteRegister');
         }
     }
-
+    
+    /**
+     * Guarda los campos de formulario de registro en la base de datos
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function register(Request $request){
         $cliente = new ClienteAuth($request->all());
         $cliente['password']=Hash::make($cliente['password']);
@@ -136,7 +136,13 @@ class ClienteAuthController extends Controller
         
         return redirect()->back()->withError('Email o Contraseña incorrectas');
     }
-
+    
+    /**
+     * Cambiar contraseña
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function cambiarContrasenya(Request $request)
     {
         if ($request->input('password') == $request->input('passwordconfirm')) {
@@ -153,7 +159,13 @@ class ClienteAuthController extends Controller
             return redirect()->back()->withError('Por favor, introduzca un par de contraseñas validas');
         }
     }
-
+    
+    /**
+     * Modifica los datos pasado por parámetros del usuario
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function cambioUsuario(Request $request){
         $cliente = ClienteAuth::find(session('usuario')[0]->id_Cliente);
         $cliente->fill($request->all());
