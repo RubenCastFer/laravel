@@ -41,7 +41,7 @@ class ClienteController extends Controller
     }
 
     /**
-     * Mostrara los coches disponibles en la fecha indicada por el cliente
+     * Mostrara los coches disponibles para la fecha indicada por el cliente
      *
      * @return \Illuminate\Http\Response
      */
