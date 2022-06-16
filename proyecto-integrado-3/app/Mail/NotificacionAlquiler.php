@@ -7,6 +7,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * NotificacionAlquiler
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class NotificacionAlquiler extends Mailable
 {
     use Queueable, SerializesModels;

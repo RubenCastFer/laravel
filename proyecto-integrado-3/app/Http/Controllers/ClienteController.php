@@ -6,21 +6,34 @@ use App\Mail\NotificacionAlquiler;
 use App\Mail\NotificacionAlquilerAnulacion;
 use App\Models\Coches;
 use App\Models\Alquiler;
-use App\Models\ClienteAuth;
 use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * ClienteController
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class ClienteController extends Controller
 {
-
-
+    
+    /**
+     * Muestra la portada
+     *
+     * @return void
+     */
     public function portada(){
         $coches=Coches::all();
         return view('cliente.principal',['coches'=>$coches]);
     }
-
+    
+    /**
+     * Muestra los alquileres así como un formulario para realizar otra operación
+     *
+     * @return void
+     */
     public function dashboard()
     {
         $alquileres= Alquiler::alquileres(session('usuario')[0]->id_Cliente);
@@ -28,7 +41,7 @@ class ClienteController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Mostrara los coches disponibles en la fecha indicada por el cliente
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,15 +58,19 @@ class ClienteController extends Controller
         $cochesLibres = Coches::cochesLibres($recogida, $devolucion);
         return view('cliente.coche', ['cochesLibres' => $cochesLibres]);
     }
-
+    
+    /**
+     * Presupuesto
+     * Los datos se guardaran en una sesion en caso de que el 
+     * usuario no este registrado o iniciado sesion, al hacerlo 
+     * se recupera y continua el proceso con los datos de la sesion.
+     * 
+     * @param  mixed $request
+     * @return void
+     */
     public function presupuesto(Request $request)
     {
-        /**
-         * 
-         * Los datos se guardaran en una sesion en caso de que el usuario no este registrado
-         * o iniciado sesion, al hacerlo se recupera y continua el proceso con los datos de la sesion.
-         * 
-         */
+
         if (!empty(session('datosPresupuesto'))) {
             $datos = session('datosPresupuesto');
         } else {
@@ -79,7 +96,13 @@ class ClienteController extends Controller
         session(['datosPresupuesto' => $datos]);
         return view('cliente.presupuesto', ['datos' => $datos]);
     }
-
+    
+    /**
+     * Se guardara el alquiler con todos los datos en la base de datos
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function guardarAlquiler(Request $request){
         $alquiler=new Alquiler(['id_Cliente'=>session('usuario')[0]->id_Cliente,
                     'id_Coche'=>session('datosPresupuesto')['coche'][0]->id_Coche,
@@ -96,7 +119,13 @@ class ClienteController extends Controller
         return redirect()->action([ClienteController::class, 'dashboard']);
     }
 
-
+    
+    /**
+     * Elimina el alquiler según el id en la base de datos
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroyAlquiler($id)
     {
         $alquiler = Alquiler::find($id);
@@ -106,7 +135,12 @@ class ClienteController extends Controller
         return redirect()->action([ClienteController::class, 'dashboard']);
     }
 
-
+    
+    /**
+     * Muestra el perfil
+     *
+     * @return void
+     */
     public function vistaPerfil(){
         return view('cliente.perfil');
     }

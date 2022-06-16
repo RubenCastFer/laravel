@@ -18,19 +18,8 @@ use App\Http\Controllers\EmpleadoController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', [ClienteController::class, 'portada']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-
-// Route::get('/cliente/login', [ClienteAuthController::class, 'showLoginForm'])->name('cliente.login');
-// Route::post('/cliente/login', [ClienteAuthController::class, 'login'])->name('cliente.login');
-// Route::get('/cliente/logout', [ClienteAuthController::class, 'logout'])->name('cliente.logout');
 Route::get('/cliente/dashboard', [ClienteController::class, 'dashboard'])->name('cliente.dashboard')->middleware(['cliente']);
 
 Route::post('/cliente/coche', [ClienteController::class, 'elegirCoche']);
@@ -45,9 +34,6 @@ Route::get('/cliente/eliminaralquiler/{idAlquiler}', [ClienteController::class, 
 
 Route::get('/cliente/perfil', [ClienteController::class, 'vistaPerfil'])->middleware(['cliente']);
 
-// Route::get('/empleado/login', [EmpleadoAuthController::class, 'showLoginForm'])->name('empleado.login');
-// Route::post('/empleado/login', [EmpleadoAuthController::class, 'login'])->name('empleado.login');
-// Route::get('/empleado/logout', [EmpleadoAuthController::class, 'logout'])->name('empleado.logout');
 
 
 Route::get('/empleado/dashboard', [EmpleadoController::class, 'dashboard'])->name('empleado.dashboard')->middleware(['empleado']);
@@ -81,7 +67,3 @@ Route::get('/empleado/eliminaralquiler/{idAlquiler}', [EmpleadoController::class
 Route::get('/empleado/perfil', [EmpleadoController::class, 'vistaPerfil'])->middleware(['empleado']);
 
 require __DIR__.'/auth.php';
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -6,23 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Coches
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class Coches extends Model
 {
     use HasFactory;
     protected $table = "coche";
     protected $primaryKey = 'id_Coche';
     protected $fillable = ['id_Coche', 'bastidor', 'marca', 'modelo', 'color', 'matricula','imagen', 'estado', 'precio'];
-
-
-    // SELECT *
-    // FROM coche
-    // WHERE id_Coche NOT IN (
-    //     SELECT id_Coche
-    // 	FROM alquiler
-    // 	WHERE ((alquiler.fecha_inicio <= '2022-04-08 11:00:00') 
-    // 	AND (alquiler.fecha_fin >= '2022-04-08 11:00:00')) 
-    // 	OR ((alquiler.fecha_inicio <= '2022-04-14 11:00:00')
-    // 	AND (alquiler.fecha_fin >= '2022-04-14 11:00:00')))
+    
+    /**
+     * Recoge solo los coches libres para las fechas especificadas
+     *
+     * @param  mixed $recogida
+     * @param  mixed $devolucion
+     * @return void
+     */
     static public function cochesLibres($recogida,$devolucion)
     {
         $cochesLibres=DB::select('SELECT *
@@ -37,7 +40,13 @@ class Coches extends Model
                                     ['recogida1'=>$recogida,'recogida2'=>$recogida,'devolucion1'=>$devolucion,'devolucion2'=>$devolucion]);
         return $cochesLibres;
     }
-
+    
+    /**
+     * coche especifico
+     *
+     * @param  mixed $id_Coche
+     * @return void
+     */
     static public function cocheEspecifico($id_Coche){
         return DB::select('SELECT *
         FROM coche

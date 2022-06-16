@@ -21,8 +21,8 @@
         <table class="table" style="margin:auto">
             <tr>
                 <th>Nº Alquiler</th>
-                <th>Nº Cliente</th>
-                <th>Nº Coche</th>
+                <th>Nombre</th>
+                <th>Coche</th>
                 <th>Precio Total</th>
                 <th>Fecha de Contrato</th>
                 <th>Fecha de Inicio</th>
@@ -32,8 +32,8 @@
             </tr>
             <tr>
                 <td>{{ $alquiler->id_Alquiler }}</td>
-                <td>{{ $alquiler->id_Cliente }}</td>
-                <td>{{ $alquiler->id_Coche }}</td>
+                <td>{{ $alquiler->name }} {{ $alquiler->apellidos }}</td>
+                <td>{{ $alquiler->marca }} {{ $alquiler->modelo }}</td>
                 <td>{{ $alquiler->precio_total }}</td>
                 <td>{{ $alquiler->fecha_contrato }}</td>
                 <td>{{ $alquiler->fecha_inicio }}</td>

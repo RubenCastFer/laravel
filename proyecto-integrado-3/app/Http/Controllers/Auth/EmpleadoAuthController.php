@@ -5,17 +5,22 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmpleadoController;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Mail\NotificacionContrasenya;
 use App\Models\EmpleadoAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * EmpleadoAuthController
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class EmpleadoAuthController extends Controller
 {
     /**
-     * Display admin login view
+     * Muestra el login
      *
      * @return \Illuminate\View\View
      */
@@ -29,29 +34,13 @@ class EmpleadoAuthController extends Controller
     }
 
     /**
-     * Handle an incoming admin authentication request.
+     * Comprueba el inicio de sesión
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function login(Request $request)
     {
-        // $this->validate($request, [
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-
-        // if (auth()->guard('empleado')->attempt([
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        // ])) {
-        //     $user = auth()->user();
-
-        //     $request->session()->put('tipo', 'empleado');
-        //     return redirect()->intended(url('/empleado/dashboard'));
-        // } else {
-        //     return redirect()->back()->withError('Credentials doesn\'t match.');
-        // }
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -75,7 +64,7 @@ class EmpleadoAuthController extends Controller
     }
 
     /**
-     * Destroy an authenticated session.
+     * Destruye la sesión
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -91,7 +80,13 @@ class EmpleadoAuthController extends Controller
         return redirect('/empleado/login');
     }
 
-
+    
+    /**
+     * Modifica los datos pasado por parámetros del empleado selecionado
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function updateEmpleado(Request $request)
     {
         $empleado = null;
@@ -106,12 +101,23 @@ class EmpleadoAuthController extends Controller
         $empleado->save();
         return redirect()->action([EmpleadoController::class, 'tablaEmpleados']);
     }
-
+    
+    /**
+     * Muestra el formulario del cambio de contraseña
+     *
+     * @return void
+     */
     public function showcambiarContrasenya()
     {
         return view('auth.empleadopassword');
     }
-
+    
+    /**
+     * Cambiar la contraseña
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function cambiarContrasenya(Request $request)
     {
         if ($request->input('password') == $request->input('passwordconfirm')) {
@@ -135,7 +141,13 @@ class EmpleadoAuthController extends Controller
             return redirect()->back()->withError('Por favor, introduzca un par de contraseñas validas');
         }
     }
-
+    
+    /**
+     * Modifica los datos pasado por parámetros del usuario empleado
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function cambioUsuario(Request $request){
         $empleado = EmpleadoAuth::find(session('usuario')[0]->id_Empleado);
         $empleado->fill($request->all());

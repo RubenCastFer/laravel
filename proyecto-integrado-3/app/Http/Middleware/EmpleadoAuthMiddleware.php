@@ -5,6 +5,12 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
+/**
+ * EmpleadoAuthMiddleware
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ */
 class EmpleadoAuthMiddleware
 {
     /**

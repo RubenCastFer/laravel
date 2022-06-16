@@ -8,22 +8,47 @@ use App\Models\EmpleadoAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * EmpleadoController
+ * @author Rubén Castellano Fernández
+ * @version 1.0
+ * @since 08-04-2022
+ * 
+ */
 class EmpleadoController extends Controller
 {
 
-
+    
+    /**
+     * Muestra un menú, con acceso a las tres tablas empleados, alquileres y coches
+     * 
+     * 
+     * @return void
+     */
     public function dashboard()
     {
         
         return view('empleado.dashboard');
     }
-
+    
+    /**
+     * Vista de todos los empleados
+     *
+     * @return void
+     */
     public function tablaEmpleados()
     {
         $empleados = EmpleadoAuth::allEmpleados ();
         return view('empleado.empleados', ['empleados' => $empleados]);
     }
 
+        
+    /**
+     * Prepara la vista para editar o crear un nuevo empleado
+     *
+     * @param  mixed $id_Empleado
+     * @return void
+     */
     public function editEmpleado($id_Empleado)
     {
         $empleado = null;
@@ -33,7 +58,13 @@ class EmpleadoController extends Controller
         }
         return view('empleado.modificarempleado', ['empleado' => $empleado]);
     }
-
+    
+    /**
+     * Elimina el empleado según el id en la base de datos
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroyEmpleado($id)
     {
         $empleado = EmpleadoAuth::find($id);
@@ -42,13 +73,24 @@ class EmpleadoController extends Controller
     }
 
 
-
+    
+    /**
+     * Vista de todos los coches
+     *
+     * @return void
+     */
     public function tablaCoches()
     {
         $coches = Coches::all();
         return view('empleado.coches', ['coches' => $coches]);
     }
-
+    
+    /**
+     * Prepara la vista para editar o crear un nuevo coche
+     *
+     * @param  mixed $id_Coche
+     * @return void
+     */
     public function editCoche($id_Coche)
     {
         $coche = null;
@@ -57,7 +99,13 @@ class EmpleadoController extends Controller
         }
         return view('empleado.modificarcoche', ['coche' => $coche]);
     }
-
+    
+    /**
+     * Modifica los datos pasado por parámetros del coche
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function updateCoche(Request $request)
     {
         $coche = null;
@@ -76,7 +124,7 @@ class EmpleadoController extends Controller
             $img = $request->input('marca') . " " . $request->input('modelo');
         }
         if ($request->file('archivo') != null) {
-            //$path=$request->file('archivo')->store('storage');
+            
             $file = $request->file('archivo');
             $exten = $file->extension();
             $path = $request->file('archivo')->storePubliclyAs(
@@ -86,11 +134,17 @@ class EmpleadoController extends Controller
             );
             $coche->fill(['imagen' => "/" . $path]);
         }
-        //$coche->fill(['imagen'=>$path]);
+        
         $coche->save();
         return redirect()->action([EmpleadoController::class, 'tablaCoches']);
     }
-
+    
+    /**
+     * Elimina el coche según el id en la base de datos
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroyCoche($id)
     {
         $coche = Coches::find($id);
@@ -100,19 +154,37 @@ class EmpleadoController extends Controller
     }
 
 
-
+    
+    /**
+     * Vista de todos los alquileres
+     *
+     * @return void
+     */
     public function tablaAlquileres()
     {
         $alquileres = Alquiler::alquileresAll();
         return view('empleado.alquileres', ['alquileres' => $alquileres]);
     }
-
+    
+    /**
+     * Prepara la vista para editar un alquiler
+     *
+     * @param  mixed $id_Alquiler
+     * @return void
+     */
     public function editAlquiler($id_Alquiler)
     {
-        $alquiler = Alquiler::find($id_Alquiler);
-        return view('empleado.modificaralquiler', ['alquiler' => $alquiler]);
+        $alquiler = Alquiler::alquileresFind($id_Alquiler);
+        return view('empleado.modificaralquiler', ['alquiler' => $alquiler[0]]);
     }
-
+    
+    /**
+     * Modifica los datos pasado por parámetros del alquiler
+     *
+     * @param  mixed $request
+     * @param  mixed $id_Alquiler
+     * @return void
+     */
     public function updateAlquiler(Request $request, $id_Alquiler)
     {
         $alquiler = Alquiler::find($id_Alquiler);
@@ -128,14 +200,25 @@ class EmpleadoController extends Controller
         $alquiler->save();
         return redirect()->action([EmpleadoController::class, 'tablaAlquileres']);
     }
-
+    
+    /**
+     * Elimina el alquiler según el id en la base de datos
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroyAlquiler($id)
     {
         $alquiler = Alquiler::find($id);
         $alquiler->delete();
         return redirect()->action([EmpleadoController::class, 'tablaAlquileres']);
     }
-
+    
+    /**
+     * Prepara la vista del perfil
+     *
+     * @return void
+     */
     public function vistaPerfil(){
         return view('empleado.perfil');
     }
