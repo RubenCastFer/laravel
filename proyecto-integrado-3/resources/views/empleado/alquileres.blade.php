@@ -44,8 +44,10 @@
                 <td>{{ $alquiler->fecha_fin }}</td>
                 <td>{{ $alquiler->observacion }}</td>
                 <td>{{ $alquiler->estado }}</td>
+                @if($alquiler->estado!="Finalizado")
                 <td><a class="btn btn-success" href="/empleado/modificaralquiler/{{ $alquiler->id_Alquiler }}">Editar</a></td>
                 <td><a class="btn btn-danger" href="/empleado/eliminaralquiler/{{ $alquiler->id_Alquiler }}">Eliminar</a></td>
+                @endif
             </tr>
 
             @endforeach

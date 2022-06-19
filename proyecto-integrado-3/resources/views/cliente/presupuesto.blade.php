@@ -73,7 +73,7 @@
 
                                         <div class="form-floating col-12 col-lg-4 mt-2">
                                             <input type="text" class="form-control" id="seguridad" name="seguridad" placeholder="seguridad" required>
-                                            <label for="seguridad">Cod Seguridad</label>
+                                            <label for="seguridad">CVV</label>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-5 p-4">

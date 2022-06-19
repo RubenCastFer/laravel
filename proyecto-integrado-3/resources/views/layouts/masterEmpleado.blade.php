@@ -20,8 +20,8 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-          <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse me-4 pe-4" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav ms-auto pe-4">
             @if (session()->get('tipo')=='empleado')
             <li class="nav-item">
               <a class="nav-link text-white" href="/empleado/tablaalquiler">Reservas</a>

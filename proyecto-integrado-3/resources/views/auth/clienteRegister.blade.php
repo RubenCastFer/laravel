@@ -20,7 +20,7 @@
 </div>
     <main class="form-signin">
         <div class="text-center container bg-secondary p-2 text-dark bg-opacity-50">
-            <h1 class="text-decoration-underline text-white">Titulo</h1><br>
+        <h1 class="fst-italic text-white">Click & Car</h1><br>
             <h1 class="h3 mb-3 fw-normal text-white">Registrate</h1>
             @if(\Session::has('error'))
             <div class="alert alert-danger">{{ \Session::get('error') }}</div>
