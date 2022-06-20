@@ -80,12 +80,12 @@
                                         <div class="row g-2">
                                             <h6>Caducidad:</h6>
                                             <div class="form-floating mt-2 col-12 col-lg-6">
-                                                <input type="text" class="form-control" id="dd" name="dd" placeholder="dd" require>
-                                                <label for="dd">dd</label>
-                                            </div>
-                                            <div class="form-floating mt-2 col-12 col-lg-6">
                                                 <input type="text" class="form-control" id="MM" name="MM" placeholder="MM" require>
                                                 <label for="MM">MM</label>
+                                            </div>
+                                            <div class="form-floating mt-2 col-12 col-lg-6">
+                                                <input type="text" class="form-control" id="YY" name="YY" placeholder="YY" require>
+                                                <label for="YY">YY</label>
                                             </div>
                                         </div>
                                         <input type="submit" class="w-100 btn btn-lg btn-primary mt-2" value="Realizar Pago">

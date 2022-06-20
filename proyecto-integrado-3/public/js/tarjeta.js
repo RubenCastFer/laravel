@@ -18,11 +18,11 @@ $(document).ready(function(){
             minlength: 3,
             maxlength: 3
           },
-          dd: {
+          YY: {
             required: true,
             digits: true,
             min: 1,
-            max: 31
+            max: 99
           },
           MM: {
             required: true,
@@ -50,7 +50,7 @@ $(document).ready(function(){
             minlength: "Valor incorrecto",
             maxlength: "Valor incorrecto"
           },
-          dd: {
+          YY: {
             required: "Campo requerido",
             digits: "Introduzca solo dígitos",
             min: "Valor incorrecto",
